@@ -1,0 +1,59 @@
+dnl $Id: Exp $
+dnl Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.53)
+
+AC_INIT([genesis], [0.5], [ederbsd@gmail.com])
+AC_CONFIG_SRCDIR(genesis/genesis.hpp)
+AC_CONFIG_AUX_DIR(config)
+
+AC_CANONICAL_HOST
+AC_PROG_MAKE_SET
+
+AM_INIT_AUTOMAKE
+AM_CONFIG_HEADER(config.h)
+
+dnl Checks for programs.
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_PROG_LIBTOOL
+
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+
+AC_C_BIGENDIAN
+
+dnl Checks for library functions.
+AC_LANG_RESTORE
+
+dnl Checks for functions.
+AC_CHECK_FUNC(trunc)
+AC_CHECK_FUNCS(isnan _isnan)
+
+dnl Enable release librarie.
+AC_ARG_ENABLE(release,
+        [If enable sets the release compile configuration on],
+        [case "${enableval}" in
+                yes) CXXFLAGS="-DNDEBUG -g -O3 ";;
+                no) ;;
+                *) AC_MSG_ERROR(bad value $(enableeval) for --enable-release) ;;
+        esac],
+        [])
+
+CXXFLAGS="$CXXFLAGS -Wall -D_GNU_SOURCE -DGEN_TLOG -DGEN_NANO_SECOND_SLEEP -ansi "
+LDFLAGS="$LDFLAGS -ldl -lpthread -lrt "
+LIBS="$LIBS "
+
+dnl --preserve-timestamps
+INSTALL_DATA="$INSTALL_DATA "
+
+dnl Generate files
+AC_OUTPUT([
+ Makefile
+ genesis/Makefile
+ tools/Makefile
+ tools/genesis_convex_hull/Makefile
+ tools/genesis_geodist/Makefile
+ doc/Makefile
+ test/Makefile
+])

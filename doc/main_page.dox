@@ -1,0 +1,37 @@
+/**
+ * @mainpage
+ *
+ * @image html gen_logo.png
+ * @image latex gen_logo.eps
+ *
+ * @section genesis_intro Introduction
+ *
+ * This document describes the implementation of the GENESIS
+ * Library.
+ *
+ * Genesis C++ Library of general purpose classes containing routines, 
+ * numerical algorithms, geometry, graphs and etc..
+ *
+ * @section genesis_deps Dependencies
+ *
+ * GENESIS uses the C++ Standard Library ( http://gcc.gnu.org/libstdc++/ ).
+ *
+ * @section genesis_what Provided Mechanisms
+ *
+ * - @link genesis::application Manages the application's
+ *   control flow and main settings @endlink;
+ * - @link genesis::dynamic_library::loader Dynamic Library Loading @endlink;
+ * - @link genesis::c_thread Thread Class @endlink;
+ * - @link genesis::cmd_line_parser Command Line Parsing @endlink;
+ * - @link genesis::config Configuration File Reader @endlink;
+ * - @link genesis::system File System Operations @endlink;
+ * - @link genesis::logger Logging and RunTime Debugging @endlink;
+ * - @link genesis::geometry Geometry Spherical Position @endlink;
+ * - @link genesis::maths Mathematics Technical Computing @endlink;
+ * - @link genesis::array Collection of Data Items @endlink;
+ * - @link genesis::set_cover Set Cover @endlink.
+ *
+ * @section genesis_authors Authors
+ *
+ * @verbinclude AUTHORS
+ */

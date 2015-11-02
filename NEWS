@@ -1,0 +1,15 @@
+10 Jul 200 - genesis-0.0.5
+                Added: Class Thread; Events; Mutex.
+
+24 Jun 2009 - genesis-0.0.4
+                Added: Class Config Read File.
+
+10 Mai 2009 - genesis-0.0.3
+                Added: Class Command Line Parser.
+
+04 Mai 2009 - genesis-0.0.2
+                Added: Class Convex Hull.
+                       Class Plotting.
+
+29 Abr 2009 - genesis-0.0.1
+		First Version.

@@ -26,12 +26,12 @@ namespace genesis {
     /**
      * Constructor.
      */
-    bitree() {};
+    bitree();
 
     /**
      * Destructor.
      */ 
-    virtual ~bitree() {};
+    virtual ~bitree();
 
     /**
      * XXX

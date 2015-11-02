@@ -18,7 +18,14 @@
 #include <genesis/cmd_line_parser.hpp>
 #include <genesis/lexical_cast.hpp>
 
+#include <cstdio>
+#include <cstdlib>
+#include <csignal>
 #include <string>
+
+extern "C" {
+#include <unistd.h>
+}
 
 namespace genesis {
   /**

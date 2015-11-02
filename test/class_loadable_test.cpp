@@ -22,7 +22,7 @@
 #include <genesis/loadable.hpp>
 
 // Name lib test.
-static const std::string libload_ = "libload.so";
+static const std::string libload_ = "libproc.so";
 
 int main( int argc, char* argv[] )
 {

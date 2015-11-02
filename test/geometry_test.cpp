@@ -46,11 +46,11 @@ static int geodist_test( void )
   lon2 = 118.41;
 
   GEN_TRUE_OR_ERROR( genesis::geometry::geodist( lat1, lon1, lat2, 
-                      lon2, &distance ) == 0, "Error Geometry Geodist!" );
+                      lon2, &distance, "" ) == 0, "Error Geometry Geodist!" );
 
   fprintf( stdout, "SFO: (%+07.2lf,%+07.2lf)\n", lat1, lon1 );
   fprintf( stdout, "LAX: (%+07.2lf,%+07.2lf)\n", lat2, lon2 );
-  fprintf( stdout, "distance = %d\n\n", ( int )distance );
+  fprintf( stdout, "distance = %f\n\n", distance );
 
   failed += genesis::tests::result( "(Geometry Geodist) Calculing distance "
                                     "SFO -> LAX: ", distance, 293.554, 0.001 );
@@ -64,11 +64,11 @@ static int geodist_test( void )
   lon2 = -115.97;
 
   GEN_TRUE_OR_ERROR( genesis::geometry::geodist( lat1, lon1, lat2,
-                      lon2, &distance ) == 0, "Error Geometry Geodist!" );
+                      lon2, &distance, "" ) == 0, "Error Geometry Geodist!" );
 
   fprintf( stdout, "CDG: (%+07.2lf,%+07.2lf)\n", lat1, lon1 );
   fprintf( stdout, "PER: (%+07.2lf,%+07.2lf)\n", lat2, lon2 );
-  fprintf( stdout, "distance = %d\n\n", ( int )distance );
+  fprintf( stdout, "distance = %f\n\n", distance );
 
   failed += genesis::tests::result( "(Geometry Geodist) Calculing distance " 
                                     "CDG -> PER: ", distance, 7706.63, 0.01 );
@@ -82,11 +82,11 @@ static int geodist_test( void )
   lon2 = 0.5;
 
   GEN_TRUE_OR_ERROR( genesis::geometry::geodist( lat1, lon1, lat2,
-                      lon2, &distance ) == 0, "Error Geometry Geodist!" );
+                      lon2, &distance, "" ) == 0, "Error Geometry Geodist!" );
 
   fprintf( stdout, "NYK: (%+07.2lf,%+07.2lf)\n", lat1, lon1 );
   fprintf( stdout, "LDN: (%+07.2lf,%+07.2lf)\n", lat2, lon2 );
-  fprintf( stdout, "distance = %d\n\n", ( int )distance );
+  fprintf( stdout, "distance = %f\n\n", distance );
 
   failed += genesis::tests::result( "(Geometry Geodist) Calculing distance "
                                     "NYK -> LDN: ", distance, 2991.84, 0.01 );
@@ -100,11 +100,11 @@ static int geodist_test( void )
   lon2 = 46.0;
 
   GEN_TRUE_OR_ERROR( genesis::geometry::geodist( lat1, lon1, lat2,
-                      lon2, &distance ) == 0, "Error Geometry Geodist!" );
+                      lon2, &distance, "" ) == 0, "Error Geometry Geodist!" );
 
   fprintf( stdout, "RJO: (%+07.2lf,%+07.2lf)\n", lat1, lon1 );
   fprintf( stdout, "SPO: (%+07.2lf,%+07.2lf)\n", lat2, lon2 );
-  fprintf( stdout, "distance = %d\n\n", ( int )distance );
+  fprintf( stdout, "distance = %f\n\n", distance );
 
   failed += genesis::tests::result( "(Geometry Geodist) Calculing distance " 
                                     "RJO -> SPO: ", distance, 176.905, 0.001 );
@@ -118,11 +118,11 @@ static int geodist_test( void )
   lon2 = 43.0;
 
   GEN_TRUE_OR_ERROR( genesis::geometry::geodist( lat1, lon1, lat2,
-                      lon2, &distance ) == 0, "Error Geometry Geodist!" );
+                      lon2, &distance, "" ) == 0, "Error Geometry Geodist!" );
 
   fprintf( stdout, "SPO: (%+07.2lf,%+07.2lf)\n", lat1, lon1 );
   fprintf( stdout, "RJO: (%+07.2lf,%+07.2lf)\n", lat2, lon2 );
-  fprintf( stdout, "distance = %d\n\n", ( int )distance );
+  fprintf( stdout, "distance = %f\n\n", distance );
 
   failed += genesis::tests::result( "(Geometry Geodist) Calculing distance "
                                     "SPO -> RJO: ", distance, 176.905, 0.001 );

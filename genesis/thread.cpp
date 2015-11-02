@@ -204,14 +204,14 @@ namespace genesis {
   c_thread::c_thread()
    : m_brunning( GEN_SET_FALSE ),
      m_dwid( 0L ), 
+     m_lppvque( 0 ),
+     m_chque( QUE_SIZE ),
+     m_quepos( 0 ),
+     m_lpvprocessor( 0 ),
      m_state( TH_DOWN ),
      m_dwidle( 100 ),
-     m_lppvque( 0 ),
-     m_lpvprocessor( 0 ),
-     m_chque( QUE_SIZE ),
      m_type( TH_TYPE_EVENT_DRIVEN ),
-     m_stack_size( DEFAULT_STACK_SIZE ),
-     m_quepos( 0 )
+     m_stack_size( DEFAULT_STACK_SIZE )
   {
     m_dw_object_condition = NO_ERRORS;
     m_lppvque = new proto_th::GEN_VOID[ QUE_SIZE ];
@@ -274,7 +274,7 @@ namespace genesis {
   {
     m_mutex.lock();
 
-    if( m_quepos - 1 < 0 ) {
+    if(m_quepos - 1 <= 0) {
       m_quepos = 0;
       m_mutex.unlock();
       return GEN_SET_FALSE;

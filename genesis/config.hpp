@@ -241,7 +241,7 @@ T config::string_as_T( const std::string& s )
  * @return True.
  */
 template<>
-bool config::string_as_T<bool>( const std::string& s )
+ inline bool config::string_as_T<bool>( const std::string& s )
 {
   genesis::lexical_cast::to_bool<bool>( s );
   return true;

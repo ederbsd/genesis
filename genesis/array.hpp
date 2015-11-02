@@ -18,6 +18,7 @@
 #include <genesis/logger.hpp>
 #include <genesis/string_util.hpp>
 
+#include <cstdio>
 #include <cmath>
 
 #include <algorithm>

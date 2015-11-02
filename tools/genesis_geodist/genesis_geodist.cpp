@@ -3,7 +3,7 @@
  *
  * Calcule distance lat lon.
  *
- * Copyright (c) 2009 Ederson de Moura
+ * Copyright (c) 2009-2015 Ederson de Moura
  *
  * @author Ederson de Moura
  *
@@ -47,8 +47,9 @@ class genesis_geodist : public genesis::application {
      * @param lon1 - The longitude of the position.
      * @param lat2 - The latitude of the position.
      * @param lon2 - The longitude of the position.
+     * @param unit - The unit you desire for results.
      */ 
-    void compute_geodist( double lat1, double lon1, double lat2, double lon2 );
+    void compute_geodist( double lat1, double lon1, double lat2, double lon2, std::string unit );
 
     /**
      * Read values the config file.
@@ -59,7 +60,8 @@ class genesis_geodist : public genesis::application {
     double lon1_conf_; ///< Conf file. The longitude of the position.
     double lat2_conf_; ///< Conf file. The latitude of the position.
     double lon2_conf_; ///< Conf file. The longitude of the position.
-
+    std::string unit_conf_; ///< Conf file. The unit you desire for results .
+ 
     bool enable_color_; ///< Enable color ansi in console.
 };
 
@@ -90,6 +92,10 @@ void genesis_geodist::usage()
   add_usage( "      --lon2 | -d          The longitude of the position in "
              "degrees within\n"
              "                           the range [-180, 180]." );
+  add_usage( "      --unit | -u          The unit you desire for results. Where:\n" 
+             "                           'M' is miles\n"
+             "                           'K' is kilometers\n"
+             "                           'N' is nautical miles.");
   add_usage( "      --conf | -f          Read options from conf file name." );
   set_restore_ansi_color();
   print_usage();
@@ -106,25 +112,25 @@ void genesis_geodist::version() const
 
   genesis::library::check_build_details();
 
-  std::cout << "\nCopyright (C) 2009 "
+  std::cout << "\nCopyright (C) 2009-2015 "
             << "Ederson de Moura " << "<" << PACKAGE_BUGREPORT
             << ">."
             << std::endl;
 }
 
 void genesis_geodist::compute_geodist( double lat1, double lon1, double lat2, 
- double lon2 )
+ double lon2, std::string unit )
 {
   GEN_MSG( "\nComputing distances between points on Earth.\n" );
 
   double distance = 0.0;
 
   GEN_TRUE_OR_ERROR( genesis::geometry::geodist( lat1, lon1, lat2,
-                      lon2, &distance ) == 0, "Error Geometry Geodist!" );
+                      lon2, &distance, unit ) == 0, "Error Geometry Geodist!" );
 
   fprintf( stdout, "City1: (%+07.2lf,%+07.2lf)\n", lat1, lon1 );
   fprintf( stdout, "City2: (%+07.2lf,%+07.2lf)\n", lat2, lon2 );
-  fprintf( stdout, "distance = %d\n\n", ( int )distance );
+  fprintf( stdout, "distance = %f\n\n", distance );
 }
 
 void genesis_geodist::read_conf()
@@ -136,6 +142,8 @@ void genesis_geodist::read_conf()
 
   lat2_conf_ = cf.read<double>( "lat2", 0.0 );
   lon2_conf_ = cf.read<double>( "lon2", 0.0 );
+
+  unit_conf_ = cf.read<std::string>( "unit" );
 }
 
 int genesis_geodist::main( int argc, char* argv[] )
@@ -152,6 +160,7 @@ int genesis_geodist::main( int argc, char* argv[] )
   set_option( "lon1", 'b' );
   set_option( "lat2", 'c' );
   set_option( "lon2", 'd' );
+  set_option( "unit", 'u' );
 
   bool ok = false;
 
@@ -179,7 +188,7 @@ int genesis_geodist::main( int argc, char* argv[] )
 
   if( get_flag( "conf" ) != 0  || get_flag( 'f' ) != 0 ) {
     read_conf();
-    compute_geodist( lat1_conf_, lon1_conf_, lat2_conf_, lon2_conf_ );
+    compute_geodist( lat1_conf_, lon1_conf_, lat2_conf_, lon2_conf_, unit_conf_ );
     return ok;
   }
 
@@ -207,8 +216,13 @@ int genesis_geodist::main( int argc, char* argv[] )
     lon2 = get_value( 'd' );
   }
 
+  std::string unit;
+  if( get_value( "unit" ) != 0 || get_value( 'u' ) != 0 ) {
+    unit = get_value( 'u' );
+  }
+
   compute_geodist( to_double<double>( lat1 ), to_double<double>( lon1 ),
-                   to_double<double>( lat2 ), to_double<double>( lon2 ) );
+                   to_double<double>( lat2 ), to_double<double>( lon2 ), unit );
 
   return exit_success;
 }

@@ -5,7 +5,7 @@
  *
  * GENESIS - Library of general purpose classes
  *
- * Copyright (c) 2009 Ederson de Moura
+ * Copyright (c) 2009-2010 Ederson de Moura
  *
  * @author Ederson de Moura
  *
@@ -20,6 +20,8 @@
 #include <genesis/application.hpp>
 #include <genesis/logger.hpp>
 #include <genesis/string_util.hpp>
+
+#include <cstdio>
 
 // Ansi color codes.
 #define ANSI_COLOR_CLEAR "\e[0m"

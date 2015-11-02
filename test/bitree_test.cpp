@@ -80,7 +80,7 @@ static void print_postorder( const genesis::proto_bitree::node_avl* node )
 
 static int insert_int( genesis::proto_bitree::tree* tree, int i ) 
 {
-  genesis::bitree::bitree bitree_;
+  genesis::bitree bitree_;
 
   genesis::proto_bitree::node_avl* node = 0;
   genesis::proto_bitree::node_avl* prev = 0;
@@ -158,7 +158,7 @@ static genesis::proto_bitree::node_avl* search_int(
 
 int main( int argc, char* argv[] ) 
 {
-  genesis::bitree::bitree bitree_;
+  genesis::bitree bitree_;
 
   genesis::proto_bitree::tree tree;
   genesis::proto_bitree::node_avl* node;

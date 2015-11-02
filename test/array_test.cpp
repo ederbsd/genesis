@@ -104,7 +104,7 @@ static int cube_test( void )
     if( i % 6 == 0 ) {
       printf( "  " );
     }
-    printf( "%hd ", c[0][0][i] );
+    printf( "%hhd ", c[0][0][i] );
   }
 
   GEN_MSG( "" );
@@ -113,7 +113,7 @@ static int cube_test( void )
     if( i % 6 == 0 ) {
       printf( "  " );
     }
-    printf( "%hd ", c[0][0][i] );
+    printf( "%hhd ", c[0][0][i] );
   }
 
   GEN_MSG( "" );

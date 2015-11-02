@@ -15,6 +15,8 @@
 #ifndef GENESIS_GENESIS_HPP
 #define GENESIS_GENESIS_HPP
 
+#include <cstdio>
+
 namespace genesis {
   /**
    * Class Genesis Library.

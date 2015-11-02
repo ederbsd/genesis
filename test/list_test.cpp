@@ -91,7 +91,7 @@ int main( int argc, char *argv[] )
   }
 
   data = ( int * )GEN_LIST_DATA( str_element );
-  fprintf( stdout, "Removing an element after the one containing %03d\n", ( int )data );
+  fprintf( stdout, "Removing an element after the one containing %03u\n", (size_t)data );
 
   if( genesis::list::rem_next( &str_list, str_element, ( void** )&data ) != 0 ) {
     return 1;

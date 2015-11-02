@@ -5,7 +5,7 @@
  *
  * GENESIS - Library of general purpose classes.
  *
- * Copyright (c) 2009 Ederson de Moura
+ * Copyright (c) 2009-2015 Ederson de Moura
  *
  * @author Ederson de Moura
  *

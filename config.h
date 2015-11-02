@@ -4,6 +4,9 @@
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
 
+/* This is a FreeBSD system */
+/* #undef FREEBSD */
+
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
 
@@ -12,6 +15,9 @@
 
 /* Define to 1 if you have the `isnan' function. */
 #define HAVE_ISNAN 1
+
+/* can use shutdown on listen sockets */
+#define HAVE_LISTEN_SHUTDOWN 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -40,9 +46,18 @@
 /* Define to 1 if you have the `_isnan' function. */
 /* #undef HAVE__ISNAN */
 
+/* This is a Linux kernel */
+#define LINUX 1
+
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
 #define LT_OBJDIR ".libs/"
+
+/* This is an OS X system */
+/* #undef OSX */
+
+/* Some strange OS */
+/* #undef OTHEROS */
 
 /* Name of package */
 #define PACKAGE "genesis"
@@ -54,19 +69,25 @@
 #define PACKAGE_NAME "genesis"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "genesis 0.5"
+#define PACKAGE_STRING "genesis 1.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "genesis"
 
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
+
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.5"
+#define PACKAGE_VERSION "1.0"
+
+/* This is a BSD system */
+/* #undef SOMEBSD */
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.5"
+#define VERSION "1.0"
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */

@@ -28,8 +28,8 @@ static const int CMD_COMMAND_FLAG = 5;
 static const int CMD_COMMAND_OPT = 2;
 static const int CMD_COMMON_FLAG = 4;
 static const int CMD_COMMON_OPT = 1;
-static const int CMD_FILE_FLAG = 6;
-static const int CMD_FILE_OPT = 3;
+//static const int CMD_FILE_FLAG = 6;
+//static const int CMD_FILE_OPT = 3;
 
 static const int CMD_DEFAULT_MAXOPTS = 10;
 static const int CMD_DEFAULT_MAXUSAGE = 3;

@@ -5,7 +5,7 @@
  *
  * GENESIS - Library of general purpose classes
  *
- * Copyright (c) 2009 Ederson de Moura
+ * Copyright (c) 2009-2015 Ederson de Moura
  *
  * @author Ederson de Moura
  *
@@ -23,6 +23,16 @@
 
 namespace genesis {
 
+  bitree::bitree() 
+  {
+    // Empty contructor.
+  }
+
+  bitree::~bitree() 
+  {
+    // Empty destructor.
+  }
+  
   void bitree::init( proto_bitree::tree* tree, void( *destroy )( void* data ) ) 
   {
     // Initialize the binary tree.
@@ -42,7 +52,8 @@ namespace genesis {
     rem_left( tree, 0 );
 
     // No operations are allowed now, but clear the structure as a precaution.
-    std::memset( tree, 0, sizeof( tree ) );
+    delete tree;
+    //free( std::memset( tree, 0, sizeof( tree ) ));
     return;
   }
 

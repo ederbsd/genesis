@@ -17,6 +17,7 @@
 
 #include <exception>
 #include <stdexcept>
+#include <new>
 
 namespace genesis {
   /** 

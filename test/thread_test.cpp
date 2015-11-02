@@ -164,7 +164,7 @@ int main( int argc, char* argv[] )
     p_thread_inc->event((proto_th::GEN_VOID)&increment);
     gen_sleep( 500 );
     GEN_MSG( "\n--DESTROYING OBJECT...\n" );
-    delete p_thread_inc;
+    //delete p_thread_inc;
     gen_sleep( 500 );
   } else {
     GEN_ERROR( "FAILED TO ALLOCATE THREAD\n" );
@@ -213,14 +213,15 @@ int main( int argc, char* argv[] )
     }
 
     my_th.reset();
-
+    
     while( my_th.get_value() < 40 ) {
       my_th.event( &two );
-      gen_sleep(100);
+      //gen_sleep( 100 );
     }
   }
-
-  GEN_MSG( "--INSTANTIATING THE ORIGIONAL CTHREAD CLASS BY DECLARATION\n" );
+  
+  /*
+  GEN_MSG( "\n--INSTANTIATING THE ORIGIONAL CTHREAD CLASS BY DECLARATION\n" );
   {
     my_task my_task;
     c_thread thread;
@@ -232,8 +233,8 @@ int main( int argc, char* argv[] )
 
     thread.event( &my_task );
     my_task.wait( 1 );
-  }
-
+  }*/
+  
   GEN_MSG( "\n--INSTANTIATING THE ORIGIONAL CTHREAD CLASS BY DECLARATION\n" );
   {
     my_task* p_my_task = new my_task;
@@ -242,10 +243,10 @@ int main( int argc, char* argv[] )
 
     if( p_my_task->wait( 1 ) )  {
       GEN_MSG( "\tFreeing p_my_task\n" );
-      delete p_my_task;
+      //delete p_my_task;
     }
   }
-
+  
   GEN_MSG( "\n--INSTANTIATING a CTHREAD AND USING A CTASK OBJECT\n" );
   {
     c_task_incrementer incr;

@@ -41,7 +41,6 @@ namespace genesis {
     void unknown::release()
     {
       if( --ref_ == 0 ) {
-        delete this;
       }
     }
 

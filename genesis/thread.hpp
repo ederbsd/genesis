@@ -287,7 +287,7 @@ namespace genesis {
      */
     static proto_th::thread_id_t thread_id() {
       proto_th::thread_id_t this_threads_id;
-      this_threads_id = pthread_self();
+      this_threads_id = (long)pthread_self();
       return this_threads_id;
     }
 

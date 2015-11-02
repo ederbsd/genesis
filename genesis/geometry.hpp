@@ -46,7 +46,7 @@ namespace genesis {
      */ 
     static void arclen( proto_geo::point_spher_coord p1, 
                         proto_geo::point_spher_coord p2, 
-                        double* length );
+                        double* length, std::string unit );
 
     /**
      * Approximates the distance between two points on Earth.
@@ -60,9 +60,10 @@ namespace genesis {
      * @param lon2 - The longitude of the position in degrees within 
      *               the range [-180, 180]
      * @param d - Returns the distance, default 0.
+     * @param unit -
      */
     static int geodist( double lat1, double lon1, double lat2, 
-                         double lon2, double *d );
+                         double lon2, double *d, std::string unit );
 
     /**
      * Computes the volume of an ellipsoidal cap.

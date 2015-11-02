@@ -93,7 +93,7 @@ namespace genesis {
 
   void geometry::arclen( proto_geo::point_spher_coord p1,
                          proto_geo::point_spher_coord p2,
-                         double* length )
+                         double* length, std::string unit )
   {    
     proto_geo::point_rect_coord p1_rct;
     proto_geo::point_rect_coord p2_rct;
@@ -119,11 +119,22 @@ namespace genesis {
     // Compute the length of the arc along the spherical surface.
     *length = alpha * p1.rho;
 
+    if( unit == "M" ) {
+      // Print in miles.
+      *length = *length * 60 * 1.1515;
+    } else if( unit == "K") {
+      // Print in kilometers.
+      *length = *length * 1.609344;
+    } else if( unit == "N" ) {
+      // Print in nautical miles.
+      *length = *length * 0.8684;
+    }
+
     return;
   }
 
   int geometry::geodist( double lat1, double lon1, double lat2, 
-                          double lon2, double* d )
+                          double lon2, double* d, std::string unit )
   {
     proto_geo::point_spher_coord p1, p2;
 
@@ -151,7 +162,7 @@ namespace genesis {
                 GEN_GEOMETRY_DEGTORAD( 90.0 );
 
     // Compute the distance between the points.
-    arclen( p1, p2, d );
+    arclen( p1, p2, d, unit );
 
     return 0;
   }

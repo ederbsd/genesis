@@ -14468,6 +14468,7 @@ _ACEOF
      mhd_host_os='FreeBSD'
      { $as_echo "$as_me:${as_lineno-$LINENO}: result: $mhd_host_os" >&5
 $as_echo "$mhd_host_os" >&6; }
+     LDFLAGS="$LDFLAGS -lpthread -lrt "
      ;;
 *linux*)
 
@@ -14478,9 +14479,10 @@ _ACEOF
      mhd_host_os='Linux'
      { $as_echo "$as_me:${as_lineno-$LINENO}: result: $mhd_host_os" >&5
 $as_echo "$mhd_host_os" >&6; }
+     LDFLAGS="$LDFLAGS -ldl -lpthread -lrt "
      ;;
 *)
-     mhd_host_os='unrecognised OS'
+     mhd_host_os='Unrecognised OS'
      { $as_echo "$as_me:${as_lineno-$LINENO}: result: $mhd_host_os" >&5
 $as_echo "$mhd_host_os" >&6; }
      { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Unrecognised OS $host_os" >&5
@@ -14503,8 +14505,7 @@ if test "${enable_release+set}" = set; then :
 fi
 
 
-CXXFLAGS="$CXXFLAGS -Wall -D_GNU_SOURCE -DGEN_TLOG -DGEN_NANO_SECOND_SLEEP "
-LDFLAGS="$LDFLAGS -ldl -lpthread -lrt "
+CXXFLAGS="$CXXFLAGS -Wall -DGEN_TLOG -DGEN_NANO_SECOND_SLEEP "
 LIBS="$LIBS "
 
 INSTALL_DATA="$INSTALL_DATA "

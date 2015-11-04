@@ -15,9 +15,6 @@
 /* Define to 1 if you have the `isnan' function. */
 #undef HAVE_ISNAN
 
-/* can use shutdown on listen sockets */
-#undef HAVE_LISTEN_SHUTDOWN
-
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
 
@@ -78,9 +75,6 @@
 
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
-
-/* This is a BSD system */
-#undef SOMEBSD
 
 /* Define to 1 if you have the ANSI C header files. */
 #undef STDC_HEADERS

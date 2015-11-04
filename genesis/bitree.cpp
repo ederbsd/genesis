@@ -50,10 +50,10 @@ namespace genesis {
   {
     // Remove all the nodes from the tree. 
     rem_left( tree, 0 );
-
+    
     // No operations are allowed now, but clear the structure as a precaution.
-    delete tree;
-    //free( std::memset( tree, 0, sizeof( tree ) ));
+    //std::free( std::memset( tree, 0, sizeof( tree ) ));
+    tree = 0;
     return;
   }
 

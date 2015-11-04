@@ -13,6 +13,13 @@ AC_PROG_MAKE_SET
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
 
+dnl Force compiler to clang.
+CC=clang
+CXX=clang++
+
+# I am not sure why this is here or if it is needed.
+#CPP="clang -E"
+
 dnl Checks for programs.
 AC_PROG_CXX
 AC_PROG_INSTALL
@@ -35,19 +42,16 @@ AC_MSG_CHECKING([[for target host OS]])
 case "$host_os" in
 *darwin* | *rhapsody* | *macosx*)
      AC_DEFINE_UNQUOTED(OSX,1,[This is an OS X system])
-     CFLAGS="-no-cpp-precomp -fno-common $CFLAGS"
      mhd_host_os='Darwin'
      AC_MSG_RESULT([[$mhd_host_os]])
      ;;
-freebsd*)
-     AC_DEFINE_UNQUOTED(SOMEBSD,1,[This is a BSD system])
+*freebsd*)
      AC_DEFINE_UNQUOTED(FREEBSD,1,[This is a FreeBSD system])
      mhd_host_os='FreeBSD'
      AC_MSG_RESULT([[$mhd_host_os]])
      ;;
 *linux*)
      AC_DEFINE_UNQUOTED(LINUX,1,[This is a Linux kernel])
-     AC_DEFINE_UNQUOTED(HAVE_LISTEN_SHUTDOWN,1,[can use shutdown on listen sockets])
      mhd_host_os='Linux'
      AC_MSG_RESULT([[$mhd_host_os]])
      ;;

@@ -22,17 +22,18 @@
 #include <genesis/loadable.hpp>
 
 // Name lib test.
-static const std::string libload_ = "libproc.so";
+static const std::string libload_ = "libload.so";
 
 int main( int argc, char* argv[] )
 {
+  /*
   genesis::dynamic_library::loadable* loader;
   genesis::dynamic_library::factory* factory;
   genesis::dynamic_library::GEN_LIBRARY_HRESULT res;
 
   loader = new genesis::dynamic_library::loadable();
   loader->add_ref();
-
+  
   // Open lib test.
   res = loader->get_class_object( libload_, &factory );
 
@@ -47,9 +48,9 @@ int main( int argc, char* argv[] )
 
   // Print magic number.
   GEN_MSG( simple->get_magic_number() );
-
+  
   simple->release();
   loader->release();
-
+  */
   return 0;
 }

@@ -6,1079 +6,1202 @@ set style line 1 pointtype 7 linecolor rgb 'red'
 set style line 2 pointtype 7 linecolor rgb 'green'
 set style line 3 pointtype 7 linecolor rgb 'black'
 plot '-' ls 1 with points notitle
-57 194
-124 156
-177 96
-198 168
-121 76
-32 172
-23 26
-36 16
-55 113
-146 48
-145 108
-26 60
-17 129
-186 72
-6 190
-11 13
-133 135
-169 110
-182 117
-77 102
+165 36
+69 174
+177 156
+131 198
+157 153
+90 129
+111 52
+103 84
+99 148
+100 140
+148 199
+187 9
+87 166
+189 6
+167 124
+43 81
+110 63
+4 86
+169 85
+33 125
 e
 pause -1 'Hit OK to move to the next state!'
 set title 'The points partitioned into an upper and lower hull' font 'Arial,12'
 plot '-' ls 1 with points notitle, '-' ls 2 with points notitle, '-' ls 3 with linespoints notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
 e
-57 194
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
 e
-6 190
-198 168
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-e
-57 194
+4 86
+189 6
 e
 pause -1 'Hit OK to move to the next state!'
 set title 'The hull in state: Adding a new point' font 'Arial,12'
 plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-17 129
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-17 129
-23 26
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-23 26
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-23 26
-26 60
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-23 26
-26 60
-32 172
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-23 26
-26 60
-32 172
-36 16
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-23 26
-26 60
-36 16
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-23 26
-36 16
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-55 113
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-55 113
-77 102
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-77 102
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-77 102
-121 76
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-124 156
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-124 156
-133 135
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-133 135
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-133 135
-145 108
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-145 108
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-145 108
-146 48
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-121 76
-146 48
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-169 110
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-169 110
-177 96
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-177 96
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-177 96
-182 117
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-177 96
-182 117
-186 72
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-177 96
-186 72
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: BackTracking' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-186 72
-e
-57 194
-e
-pause -1 'Hit OK to move to the next state!'
-set title 'The hull in state: Adding a new point' font 'Arial,12'
-plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
-e
-6 190
-11 13
-36 16
-146 48
-186 72
-198 168
-e
-57 194
+189 6
+e
+4 86
+189 6
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
 e
 pause -1 'Hit OK to move to the next state!'
 set title 'The hull in state: Adding a new point' font 'Arial,12'
 plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
+189 6
 e
-6 190
-11 13
-36 16
-146 48
-186 72
-198 168
+4 86
+189 6
 e
-57 194
-6 190
+33 125
+4 86
 e
-57 194
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
 e
 pause -1 'Hit OK to move to the next state!'
 set title 'The hull in state: Adding a new point' font 'Arial,12'
 plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
+189 6
 e
-6 190
-11 13
-36 16
-146 48
-186 72
-198 168
+4 86
+189 6
 e
-198 168
-57 194
-6 190
+43 81
+33 125
+4 86
 e
-57 194
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+69 174
+43 81
+33 125
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+69 174
+33 125
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+90 129
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+99 148
+90 129
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+100 140
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+103 84
+100 140
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+110 63
+103 84
+100 140
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+110 63
+100 140
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+110 63
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+111 52
+110 63
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+131 198
+111 52
+110 63
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+131 198
+110 63
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+131 198
+99 148
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+131 198
+87 166
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+157 153
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+165 36
+157 153
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+167 124
+165 36
+157 153
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+167 124
+157 153
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+167 124
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+169 85
+167 124
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+177 156
+169 85
+167 124
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+177 156
+167 124
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+177 156
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+187 9
+177 156
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: Adding a new point' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+189 6
+187 9
+177 156
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
+e
+pause -1 'Hit OK to move to the next state!'
+set title 'The hull in state: BackTracking' font 'Arial,12'
+plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
+189 6
+e
+4 86
+189 6
+e
+189 6
+177 156
+148 199
+131 198
+69 174
+4 86
+e
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
 e
 pause -1 'Hit OK to move to the next state!'
 set title 'The hull in state: Complete' font 'Arial,12'
 plot '-' ls 1 with points notitle, '-' ls 3 with linespoints notitle, '-' ls 3 with linespoints notitle, '-' ls 2 with points notitle
-11 13
-17 129
-23 26
-26 60
-32 172
-36 16
-55 113
-77 102
-121 76
-124 156
-133 135
-145 108
-146 48
-169 110
-177 96
-182 117
-186 72
-198 168
+189 6
 e
-6 190
-11 13
-36 16
-146 48
-186 72
-198 168
+4 86
+189 6
 e
-198 168
-57 194
-6 190
+189 6
+177 156
+148 199
+131 198
+69 174
+4 86
 e
-57 194
+33 125
+43 81
+69 174
+87 166
+90 129
+99 148
+100 140
+103 84
+110 63
+111 52
+131 198
+148 199
+157 153
+165 36
+167 124
+169 85
+177 156
+187 9
 e
 pause -1 'Hit OK to move to the next state!'

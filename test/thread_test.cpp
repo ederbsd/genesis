@@ -219,7 +219,7 @@ int main( int argc, char* argv[] )
       //gen_sleep( 100 );
     }
   }
-  
+
   /*
   GEN_MSG( "\n--INSTANTIATING THE ORIGIONAL CTHREAD CLASS BY DECLARATION\n" );
   {
@@ -243,10 +243,10 @@ int main( int argc, char* argv[] )
 
     if( p_my_task->wait( 1 ) )  {
       GEN_MSG( "\tFreeing p_my_task\n" );
-      //delete p_my_task;
     }
   }
-  
+
+  /*
   GEN_MSG( "\n--INSTANTIATING a CTHREAD AND USING A CTASK OBJECT\n" );
   {
     c_task_incrementer incr;
@@ -257,7 +257,8 @@ int main( int argc, char* argv[] )
       thr.event( &incr );
       gen_sleep( 100 );
     }
-  }
+  }*/
 
   GEN_MSG( "\nDone.\n" );
+  return 0;
 }

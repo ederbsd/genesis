@@ -25,12 +25,10 @@ namespace genesis {
 
   bitree::bitree() 
   {
-    // Empty contructor.
   }
 
   bitree::~bitree() 
   {
-    // Empty destructor.
   }
   
   void bitree::init( proto_bitree::tree* tree, void( *destroy )( void* data ) ) 

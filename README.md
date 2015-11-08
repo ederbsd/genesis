@@ -2,6 +2,8 @@
 
 **Genesis** C++ Library of general purpose classes containing routines, numerical algorithms, geometry, graphs and etc..
 
+#### Provided Mechanisms ####
+
  * Manages the application's
  * Control Flow and main settings
  * Dynamic Library Loading

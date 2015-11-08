@@ -1,0 +1,3 @@
+add_subdirectory(genesis_convex_hull)
+add_subdirectory(genesis_geodist)
+

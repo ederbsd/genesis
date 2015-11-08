@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/set.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/set.hxx>
+#include <genesis/logger.hxx>
 
 #include <cstring>
 
@@ -29,8 +29,8 @@ static void print_set( const genesis::proto_list::set_list_linked* set )
 
   int* data;
 
-  register int size = 0;
-  register int i = 0;
+  int size = 0;
+  int i = 0;
 
   fprintf( stdout, "Set size is %d\n", size = GEN_SET_SIZE( set ) );
 

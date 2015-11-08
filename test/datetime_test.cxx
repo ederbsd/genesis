@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/datetime.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/datetime.hxx>
+#include <genesis/logger.hxx>
 
 #include <iostream>
 #include <cstdio>

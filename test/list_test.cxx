@@ -18,7 +18,7 @@
 #include "config.h"
 #endif
 
-#include <genesis/list.hpp>
+#include <genesis/list.hxx>
 
 #include <cstdio>
 #include <cstdlib>
@@ -28,7 +28,7 @@ static void print_list( const genesis::proto_list::linked* str_list )
   genesis::proto_list::elements* str_element;
 
   int* data;
-  register int i = 0;
+  int i = 0;
 
   fprintf( stdout, "List size is %d\n", GEN_LIST_SIZE( str_list ) );
 
@@ -59,7 +59,7 @@ int main( int argc, char *argv[] )
   genesis::proto_list::elements* str_element;
 
   int* data;
-  register int i = 0;
+  int i = 0;
 
   // Initialize the linked list.
   genesis::list::init( &str_list, std::free );

@@ -18,10 +18,10 @@
 #include "config.h"
 #endif
 
-#include <genesis/maths.hpp>
-#include <genesis/geometry.hpp>
-#include <genesis/logger.hpp>
-#include <genesis/tests.hpp>
+#include <genesis/maths.hxx>
+#include <genesis/geometry.hxx>
+#include <genesis/logger.hxx>
+#include <genesis/tests.hxx>
 
 #include <iomanip>
 #include <iostream>
@@ -46,7 +46,7 @@ static int factor_test( void )
 {
   GEN_MSG( "Computer the factorials of several numbers.\n" );
 
-  register int n = 0;
+  int n = 0;
 
   for( n = 0; n <= 13; n++ ) {
     fprintf( stdout, "%2d! Recursive: %-10d ", n,
@@ -95,8 +95,8 @@ static int linear_interpolation_test( void )
     double x[N];
     double y[N];
 
-    register int i = 0;
-    register int n_out = 20;
+    int i = 0;
+    int n_out = 20;
  
     double xx = GEN_GEOMETRY_PI;
     double step = 4 * GEN_GEOMETRY_PI / ( N - 1 );
@@ -136,8 +136,8 @@ static int lagrange_interpolation_test( void )
 
   static const int N = 12;
 
-  register int i = 0;
-  register int n_out = 20;
+  int i = 0;
+  int n_out = 20;
 
   double x[N];
   double y[N];
@@ -180,7 +180,7 @@ static int least_square_test( void )
   double b1 = 0.0;
   double b0 = 0.0;
 
-  register int i = 0;
+  int i = 0;
   
   GEN_MSG( "Perform least-squares estimation.\n" );
 
@@ -224,9 +224,9 @@ static int root_newton_test( void )
 {
   double x[SIZE];
  
-  register int retval = 0;
-  register int i = 0;
-  register int n = 0; 
+  int retval = 0;
+  int i = 0;
+  int n = 0; 
 
   GEN_MSG( "Finding the roots of an equation.\n" );
 

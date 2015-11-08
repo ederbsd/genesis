@@ -18,9 +18,9 @@
 #include "config.h"
 #endif
 
-#include <genesis/config.hpp>
-#include <genesis/logger.hpp>
-#include <genesis/tests.hpp>
+#include <genesis/config.hxx>
+#include <genesis/logger.hxx>
+#include <genesis/tests.hxx>
 
 using namespace std;
 

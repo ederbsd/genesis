@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/genesis.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/genesis.hxx>
+#include <genesis/logger.hxx>
 
 int main( int argc, char* argv[] ) 
 {

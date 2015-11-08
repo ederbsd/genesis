@@ -18,7 +18,7 @@
 #include "config.h"
 #endif
 
-#include <genesis/logger.hpp>
+#include <genesis/logger.hxx>
 
 int main( int argc, char* argv[] ) 
 {

@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/array.hpp>
-#include <genesis/tests.hpp>
+#include <genesis/array.hxx>
+#include <genesis/tests.hxx>
 
 // Test array method vector.
 static int vector_test( void )
@@ -58,8 +58,8 @@ static bool matrix_test( void )
 
   int** A = genesis::array::matrix::create_matrix<int>( 5, 3 );
 
-  register int j = 0;
-  register int i = 0;
+  int j = 0;
+  int i = 0;
 
   for( j = 0; j < 5; j++ ) {
     for( i = 0; i < 3; i++ ) {
@@ -88,9 +88,9 @@ static int cube_test( void )
 
   char*** c = genesis::array::matrix::create_cube<char>( 2,4,6 );
 
-  register int i = 0;
-  register int j = 0;
-  register int k = 0;
+  int i = 0;
+  int j = 0;
+  int k = 0;
 
   for( i = 0; i < 6; i++ ) {
     for( j = 0; j < 4; j++ ) {

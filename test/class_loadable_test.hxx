@@ -14,12 +14,12 @@
  * $Id: Exp$
  */
 
-#include "class_lib_loadable.hpp"
+#include "class_lib_loadable.hxx"
 
-#include <genesis/genesis.hpp>
-#include <genesis/factory.hpp>
-#include <genesis/logger.hpp>
-#include <genesis/loadable.hpp>
+#include <genesis/genesis.hxx>
+#include <genesis/factory.hxx>
+#include <genesis/logger.hxx>
+#include <genesis/loadable.hxx>
 
 // Name lib test.
 static const std::string libload_ = "libload.so";

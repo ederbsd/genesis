@@ -17,7 +17,7 @@ enable_testing()
 
 # Add subdiretories.
 add_subdirectory(genesis)
-#add_subdirectory(tools)
-#add_subdirectory(test)
+add_subdirectory(tools)
+add_subdirectory(test)
 #add_subdirectory(doc)
 

@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/geometry.hpp>
-#include <genesis/tests.hpp>
+#include <genesis/geometry.hxx>
+#include <genesis/tests.hxx>
 
 // Test method geodist.
 static int geodist_test( void )

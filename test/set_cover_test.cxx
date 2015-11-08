@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/set_cover.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/set_cover.hxx>
+#include <genesis/logger.hxx>
 
 // Define the number of members in the skills and player sets.
 static const int SKILLS_COUNT = 12;
@@ -104,8 +104,8 @@ int main( int argc, char* argv[] )
 
   genesis::proto_list::cover_key player_array[ PLAYER_COUNT ];
 
-  register int retval = 0;
-  register int i = 0;
+  int retval = 0;
+  int i = 0;
 
   // Create the set of skills.
   GEN_MSG( "Creating the set of skills" );

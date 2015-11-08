@@ -14,7 +14,7 @@
  * $Id: Exp$
  */
 
-#include <genesis/thread.hpp>
+#include <genesis/thread.hxx>
 
 using namespace genesis;
 
@@ -84,7 +84,7 @@ public:
   }
 
   int get_increment_value() {
-    register int incr_value = 0;
+    int incr_value = 0;
 
     m_mutex.lock();
     incr_value = incr;
@@ -133,7 +133,7 @@ public:
 
 int main( int argc, char* argv[] )
 {
-  register int increment = 10;
+  int increment = 10;
 
   c_increment_thread* p_thread_inc;
 
@@ -175,7 +175,7 @@ int main( int argc, char* argv[] )
 
    if( p_thread_inc ) {
      if( p_thread_inc[9].run_thread( 2000 ) ) {
-       register int i = 0;
+       int i = 0;
        for( i = 0; i < 10; i++ ) {
          p_thread_inc[i].event();
        }
@@ -206,7 +206,7 @@ int main( int argc, char* argv[] )
   GEN_MSG( "\n--INSTANTIATING A CINCREMENTTHREAD BY DECLARATION\n" );
   {
     c_increment_thread my_th; 
-    register int two = 2;
+    int two = 2;
     while( my_th.get_value() < 20 ) {
       my_th.event();
       gen_sleep( 100 );

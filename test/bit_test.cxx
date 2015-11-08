@@ -14,8 +14,8 @@
  * $Id: Exp$
  */
 
-#include <genesis/bit.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/bit.hxx>
+#include <genesis/logger.hxx>
 
 #include <cstdio>
 
@@ -25,7 +25,7 @@ int main( int argc, char* argv[] )
   unsigned char bits2[8];
   unsigned char bits3[8];
 
-  register int i = 0;
+  int i = 0;
 
   // Perform some bit operations using 64-bit buffers.
   for( i = 0; i < 8; i++ ) {

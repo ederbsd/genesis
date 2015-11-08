@@ -18,7 +18,7 @@
 #include "config.h"
 #endif
 
-#include <genesis/cmd_line_parser.hpp>
+#include <genesis/cmd_line_parser.hxx>
 
 #include <iostream>
 using namespace std;

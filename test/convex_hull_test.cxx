@@ -14,7 +14,7 @@
  * $Id: Exp$
  */
 
-#include <genesis/convex_hull.hpp>
+#include <genesis/convex_hull.hxx>
 
 #include <iostream>
 

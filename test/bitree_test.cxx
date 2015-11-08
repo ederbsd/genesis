@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/bitree.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/bitree.hxx>
+#include <genesis/logger.hxx>
 
 #include <cstdio>
 
@@ -163,7 +163,7 @@ int main( int argc, char* argv[] )
   genesis::proto_bitree::tree tree;
   genesis::proto_bitree::node_avl* node;
 
-  register int i = 0;
+  int i = 0;
 
   // Initialize the binary tree.
   bitree_.init( &tree, std::free );

@@ -18,7 +18,7 @@
 #include "config.h"
 #endif
 
-#include <genesis/sort.hpp>
+#include <genesis/sort.hxx>
 
 #include <cstdio>
 #include <cstring>
@@ -38,7 +38,7 @@ static int compare_int( const void* int1, const void* int2 )
 
 static void print_idata( const int* array, int size ) 
 {
-  register int i = 0;
+  int i = 0;
 
   // Display the array of integers.
   for( i = 0; i < size; i++ ) {
@@ -58,7 +58,7 @@ int main( int argc, char* argv[] )
  
   char sarray[10][STRSIZ];
  
-  register int size = 10;
+  int size = 10;
 
   // Load the arrays with data to sort.
   iarray[0] = 0;

@@ -14,13 +14,12 @@
 #include "config.h"
 #endif
 
-#include <genesis/application.hpp>
-#include <genesis/genesis.hpp>
-#include <genesis/geometry.hpp>
-#include <genesis/logger.hpp>
-#include <genesis/string_util.hpp>
-
-#include <genesis/config.hpp>
+#include <genesis/application.hxx>
+#include <genesis/genesis.hxx>
+#include <genesis/geometry.hxx>
+#include <genesis/logger.hxx>
+#include <genesis/string_util.hxx>
+#include <genesis/config.hxx>
 
 class genesis_geodist : public genesis::application {
   public:

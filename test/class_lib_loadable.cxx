@@ -14,7 +14,7 @@
  * $Id: Exp$
  */
 
-#include "class_lib_loadable.hpp"
+#include "class_lib_loadable.hxx"
 
 const char* const lib_simple::ID = "lib_simple";
 const char* const lib_factory::ID = "lib_factory";

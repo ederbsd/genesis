@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/system.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/system.hxx>
+#include <genesis/logger.hxx>
 
 // Test method copy file.
 static bool copy_file_test( void )

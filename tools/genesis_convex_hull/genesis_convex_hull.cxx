@@ -14,11 +14,11 @@
 #include "config.h"
 #endif
 
-#include <genesis/application.hpp>
-#include <genesis/convex_hull.hpp>
-#include <genesis/logger.hpp>
-#include <genesis/string_util.hpp>
-#include <genesis/system.hpp>
+#include <genesis/application.hxx>
+#include <genesis/convex_hull.hxx>
+#include <genesis/logger.hxx>
+#include <genesis/string_util.hxx>
+#include <genesis/system.hxx>
 
 class genesis_convex_hull : public genesis::application {
   public:

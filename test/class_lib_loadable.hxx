@@ -17,8 +17,8 @@
 #ifndef GENESIS_CLASS_LIB_LOADABLE_HPP
 #define GENESIS_CLASS_LIB_LOADABLE_HPP
 
-#include <genesis/factory.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/factory.hxx>
+#include <genesis/logger.hxx>
 
 extern "C" {
   genesis::dynamic_library::factory* get_class_object();

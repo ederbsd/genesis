@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/exception.hpp>
-#include <genesis/logger.hpp>
+#include <genesis/exception.hxx>
+#include <genesis/logger.hxx>
 
 #include <iostream>
 

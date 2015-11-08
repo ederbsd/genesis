@@ -18,8 +18,8 @@
 #include "config.h"
 #endif
 
-#include <genesis/application.hpp>
-#include <genesis/string_util.hpp>
+#include <genesis/application.hxx>
+#include <genesis/string_util.hxx>
 
 class application_test : public genesis::application {
   public:  

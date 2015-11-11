@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export LD_LIBRARY_PATH=/home/edm/Downloads/git/try/genesis/wrapper/python/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="`pwd`/lib":$LD_LIBRARY_PATH
 
 rm -rf lib
 mkdir lib 

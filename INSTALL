@@ -1,3 +1,38 @@
+
+-- Build with CLANG
+
+shell> CC=clang
+shell> CXX=clang++
+shell> export CC CXX
+
+./configure
+
+OR GCC
+
+shell> CC=gcc
+shell> CXX=g++
+shell> export CC CXX
+shell> ./configure
+
+-- Execute test for class
+
+shell> cd build
+shell> make test
+
+-- Generate documetation project, using Doxygen
+
+shell> cd build
+shell> make doc
+
+-- Install library
+
+shell> cd build
+shell> make install
+
+
+
+
+
 Basic Installation
 ==================
 

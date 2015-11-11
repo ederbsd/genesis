@@ -20,7 +20,7 @@ check_build()
   fi
   cd build
   rm -f CMakeCache.txt
-  cmake $@ .. && make
+  cmake -DCMAKE_BUILD_TYPE=Release $@ .. && make
 }
 
 check_cmake

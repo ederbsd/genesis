@@ -63,7 +63,7 @@ namespace genesis {
      * @param unit -
      */
     static int geodist( double lat1, double lon1, double lat2, 
-                         double lon2, double *d, std::string unit );
+                        double lon2, double *d, std::string unit );
 
     /**
      * Computes the volume of an ellipsoidal cap.

@@ -136,7 +136,7 @@ namespace genesis {
   }
 
   int geometry::geodist( double lat1, double lon1, double lat2, 
-                          double lon2, double* d, std::string unit )
+                         double lon2, double* d, std::string unit )
   {
     proto_geo::point_spher_coord p1, p2;
 

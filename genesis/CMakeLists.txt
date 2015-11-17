@@ -61,7 +61,10 @@ add_library(genesis SHARED
   mutex.hxx
 )
 
-target_link_libraries(genesis dl)
+if("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
+  target_link_libraries(genesis dl)
+endif()
+
 target_link_libraries(genesis pthread)
 target_link_libraries(genesis rt)
 

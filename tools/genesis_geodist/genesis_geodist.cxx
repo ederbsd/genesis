@@ -10,10 +10,6 @@
  * $Id: Exp$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <genesis/application.hxx>
 #include <genesis/genesis.hxx>
 #include <genesis/geometry.hxx>

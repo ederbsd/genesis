@@ -1,64 +1,74 @@
 include_directories("${CMAKE_SOURCE_DIR}")
 
-add_library(genesis SHARED
-  genesis.cxx
-  genesis.hxx
-  clsid.cxx
-  clsid.hxx
-  unknown.cxx
-  unknown.hxx
-  factory.cxx
-  factory.hxx
-  loadable.cxx
-  loadable.hxx
-  logger.cxx
-  logger.hxx
-  application.cxx
+set(HEADER_FILES 
   application.hxx
-  lexical_cast.cxx
-  lexical_cast.hxx
-  string_util.cxx
-  string_util.hxx
-  cmd_line_parser.cxx
-  cmd_line_parser.hxx
-  config.cxx
-  config.hxx
-  list.cxx
-  list.hxx
-  datetime.cxx
-  datetime.hxx
-  calendar.cxx
-  calendar.hxx
-  sort.cxx
-  sort.hxx
-  array.cxx
   array.hxx
-  maths.cxx
-  maths.hxx
-  set.cxx
-  set.hxx
-  set_cover.cxx
-  set_cover.hxx
-  bit.cxx
   bit.hxx
-  tests.cxx
-  tests.hxx
-  bitree.cxx
   bitree.hxx
-  geometry.cxx
-  geometry.hxx
-  convex_hull.cxx
+  calendar.hxx
+  clsid.hxx
+  cmd_line_parser.hxx
+  config.hxx
   convex_hull.hxx
-  plotting.cxx
-  plotting.hxx
-  system.cxx
-  system.hxx
-  thread.cxx
-  thread.hxx 
-  events.cxx
-  events.hxx 
-  mutex.cxx
+  datetime.hxx
+  events.hxx
+  exception.hxx
+  factory.hxx
+  genesis.hxx
+  geometry.hxx
+  lexical_cast.hxx
+  list.hxx
+  loadable.hxx
+  logger.hxx
+  maths.hxx
   mutex.hxx
+  nullstream.hxx
+  plotting.hxx
+  proto_types.hxx
+  set.hxx
+  set_cover.hxx
+  sort.hxx
+  string_util.hxx
+  system.hxx
+  tests.hxx
+  thread.hxx
+  unknown.hxx)
+
+set(SRC_FILES
+  application.cxx
+  array.cxx
+  bit.cxx
+  bitree.cxx
+  calendar.cxx
+  clsid.cxx
+  cmd_line_parser.cxx
+  config.cxx
+  convex_hull.cxx
+  datetime.cxx
+  events.cxx
+  factory.cxx
+  genesis.cxx
+  geometry.cxx
+  lexical_cast.cxx
+  list.cxx
+  loadable.cxx
+  logger.cxx
+  maths.cxx
+  mutex.cxx
+  plotting.cxx
+  set.cxx
+  set_cover.cxx
+  sort.cxx
+  string_util.cxx
+  system.cxx
+  tests.cxx
+  thread.cxx
+  unknown.cxx
+)
+
+add_library(genesis SHARED
+  ${HEADER_FILES}
+  ${SRC_FILES}
 )
 
 if("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
@@ -73,6 +83,6 @@ install(TARGETS genesis
   ARCHIVE DESTINATION "lib"
   LIBRARY DESTINATION "lib")
 
-install(FILES genesis/genesis.hpp
+install(FILES ${HEADER_FILES} 
   DESTINATION "include/genesis")
 

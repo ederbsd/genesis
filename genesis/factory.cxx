@@ -12,29 +12,31 @@
  * $Id: Exp$
  */
 
+#ifndef GENESIS_FACTORY_HXX 
 #include <genesis/factory.hxx>
+#endif
 
 namespace genesis {
-  namespace dynamic_library {
+namespace dynamic_library {
 
-    const char* const factory::ID = "genesis::dynamic_library::factory";
+const char *const factory::ID = "genesis::dynamic_library::factory";
 
-    GEN_LIBRARY_HRESULT factory::query_interface( 
-     GEN_IN genesis::dynamic_library::clsid clsid,
-     GEN_OUT void** ppv )
-    {
-      GEN_LIBRARY_HRESULT ret;
+GEN_LIBRARY_HRESULT factory::query_interface(
+    GEN_IN genesis::dynamic_library::clsid clsid,
+    GEN_OUT void **ppv )
+{
+    GEN_LIBRARY_HRESULT ret;
 
-      if( clsid == factory::ID ) {
-        *ppv = ( void* )this;
+    if ( clsid == factory::ID ) {
+        *ppv = ( void * )this;
         add_ref();
         ret = GEN_E_NOERR;
-      } else {
+    } else {
         ret = unknown::query_interface( clsid, ppv );
-      }
-
-      return ret;
     }
 
- }
+    return ret;
+}
+
+}
 }

@@ -12,46 +12,48 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_FACTORY_HPP
-#define GENESIS_FACTORY_HPP
+#pragma once
+#ifndef GENESIS_FACTORY_HXX
+#define GENESIS_FACTORY_HXX
 
 #include <genesis/unknown.hxx>
 
 namespace genesis {
 
-  namespace dynamic_library {
+namespace dynamic_library {
 
-    class factory : public unknown {
-    public:
-      /// ID Object.
-      static const char* const ID;
+class factory : public unknown
+{
+public:
+    /// ID Object.
+    static const char *const ID;
 
-      /**
-       * Constructor.
-       */
-      factory() {};
+    /**
+     * Constructor.
+     */
+    factory() {};
 
-      /**
-       * Destructor.
-       */
-      ~factory() {};
+    /**
+     * Destructor.
+     */
+    ~factory() {};
 
-      /**
-       * Efect query interface.
-       */
-      GEN_LIBRARY_HRESULT
-       query_interface( GEN_IN genesis::dynamic_library::clsid clsid, 
-        GEN_OUT void** ppv );
+    /**
+     * Efect query interface.
+     */
+    GEN_LIBRARY_HRESULT
+    query_interface( GEN_IN genesis::dynamic_library::clsid clsid,
+                     GEN_OUT void **ppv );
 
-      /**
-       * Create instance.
-       */
-      virtual GEN_LIBRARY_HRESULT
-       create_instance( GEN_IN genesis::dynamic_library::clsid clsid, 
-        GEN_OUT void** ppv ) = 0;
-    };
- 
-  }
+    /**
+     * Create instance.
+     */
+    virtual GEN_LIBRARY_HRESULT
+    create_instance( GEN_IN genesis::dynamic_library::clsid clsid,
+                     GEN_OUT void **ppv ) = 0;
+};
+
+}
 }
 
-#endif // GENESIS_FACTORY_HPP
+#endif // GENESIS_FACTORY_HXX

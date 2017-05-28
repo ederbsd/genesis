@@ -8,7 +8,13 @@ set(VERSION_PATCH "0")
 set(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # Set envs.
-set(CMAKE_CXX_FLAGS "-Wall -DNDEBUG -g -O3 -std=c++11 -DGEN_TLOG -DGEN_NANO_SECOND_SLEEP")
+#set(CMAKE_CXX_FLAGS "-Wall -Wno-infinite-recursion -DNDEBUG -g -O3 -std=c++11 -DGEN_TLOG -DGEN_NANO_SECOND_SLEEP")
+
+
+set(CMAKE_CXX_FLAGS "-Wall -Wno-infinite-recursion -DNDEBUG -g -std=c++11 -DGEN_TLOG -DGEN_NANO_SECOND_SLEEP")
+
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
 # Enable test in project.
 enable_testing()

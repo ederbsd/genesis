@@ -12,8 +12,9 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_LOGGER_HPP
-#define GENESIS_LOGGER_HPP
+#pragma once
+#ifndef GENESIS_LOGGER_HXX
+#define GENESIS_LOGGER_HXX
 
 #include <genesis/genesis.hxx>
 #include <genesis/exception.hxx>
@@ -23,11 +24,12 @@
 #include <ostream>
 
 namespace genesis {
-  /** 
-   * Genesis Logger Class.
-   */
-  class logger {
-  public:
+/**
+ * Genesis Logger Class.
+ */
+class logger
+{
+public:
     /**
      * Constructor.
      */
@@ -35,9 +37,9 @@ namespace genesis {
 
     /**
      * Destructor.
-     */ 
+     */
     ~logger();
-        
+
     /// Return true if logger is activated.
     static bool is_activated();
 
@@ -45,9 +47,9 @@ namespace genesis {
     static void activate( bool const activated );
 
     /// Return reference to pointer to output stream.
-    static ::std::ostream *& ostream_ptr();
+    static ::std::ostream *&ostream_ptr();
 
-  private:
+private:
     /// True if logger is activated.
     static bool is_activated_;
 
@@ -55,27 +57,27 @@ namespace genesis {
     static ::std::auto_ptr< ::std::ostream > outstream_helper_ptr_;
 
     /// Pointer to the output stream of the logger
-    static ::std::ostream* outstream_;
+    static ::std::ostream *outstream_;
 
-  private:
+private:
     /// In this design logger should be noncopyable.
-    logger( logger const& );
-    logger & operator=( logger const& );
+    logger( logger const & );
+    logger &operator=( logger const & );
 
-  };
+};
 
-  // Important funtion which helps solves
-  // "static initialisation fiasco" problem.
-  extern logger & logger_parent();
+// Important funtion which helps solves
+// "static initialisation fiasco" problem.
+extern logger &logger_parent();
 
-  namespace detail {
-    extern ::std::auto_ptr<logger> logger_out_ptr_;
-  }
+namespace detail {
+extern ::std::auto_ptr<logger> logger_out_ptr_;
+}
 
 } // Namespace genesis.
 
-/** 
- * Macro prints variable name and its value to the 
+/**
+ * Macro prints variable name and its value to the
  * logger stream.
  */
 #define GEN_LOG( name ) \
@@ -123,7 +125,7 @@ namespace genesis {
 
 /**
  * Macro used to produce an error log message containing origin information.
- * This macro supports printf like semantics. The log handler must guarantee 
+ * This macro supports printf like semantics. The log handler must guarantee
  * that this macro never returns.
  */
 #define GEN_ERROR( ... ) \
@@ -134,7 +136,7 @@ namespace genesis {
   << ::std::endl; } } while( false )
 
 /**
- * Check if a condition is valid, only checked when PCS_NDEBUG is 
+ * Check if a condition is valid, only checked when PCS_NDEBUG is
  * not defined.
  *
  * @param _arg - Condition to check.
@@ -155,12 +157,12 @@ namespace genesis {
 #else
 inline void GEN_TRUE_OR_ERROR( bool arg, ... )
 {
-  if( !arg ) {
-    va_list va;
-    va_start( va, arg );
-    GEN_ERROR( va );
-    va_end( va );
-  }
+    if ( !arg ) {
+        va_list va;
+        va_start( va, arg );
+        GEN_ERROR( va );
+        va_end( va );
+    }
 }
 #endif
 
@@ -184,40 +186,40 @@ inline void GEN_TRUE_OR_ERROR( bool arg, ... )
 #else
 inline void GEN_ABORT_TRUE_OR_ERROR( bool arg, ... )
 {
-  if( !arg ) {
-    va_list va;
-    va_start( va, arg );
-    GEN_ERROR( va );
-    va_end( va );
-  }
+    if ( !arg ) {
+        va_list va;
+        va_start( va, arg );
+        GEN_ERROR( va );
+        va_end( va );
+    }
 }
 #endif
 
 namespace genesis {
-    // Example how to create functions which operates on logger stream
-    // here are used templates for preparing function which is independent
-    // on the type, but this is not required.
-    template<typename T1, typename T2, typename T3, typename T4> 
-    void put_debug_info ( logger & log, 
-        T1 const & t1, T2 const & t2, T3 const & t3, T4 const & t4 )
-    {
-      if( log.is_activated() ) {
+// Example how to create functions which operates on logger stream
+// here are used templates for preparing function which is independent
+// on the type, but this is not required.
+template<typename T1, typename T2, typename T3, typename T4>
+void put_debug_info ( logger &log,
+                      T1 const &t1, T2 const &t2, T3 const &t3, T4 const &t4 )
+{
+    if ( log.is_activated() ) {
         *( log.ostream_ptr() ) << t1 << " (" << t2 << ") : ";
         *( log.ostream_ptr() ) << t3 << " = " << t4 << ::std::endl;
-      } 
-    }
-    
-    template<typename T> 
-    void put_log_info( logger & log, T const & t )
-    {
-      if( log.is_activated() ) {
-        *( log.ostream_ptr() ) << t << ::std::endl;
-      } 
     }
 }
 
-/** 
- * Macro shows how to write macros which using 
+template<typename T>
+void put_log_info( logger &log, T const &t )
+{
+    if ( log.is_activated() ) {
+        *( log.ostream_ptr() ) << t << ::std::endl;
+    }
+}
+}
+
+/**
+ * Macro shows how to write macros which using
  * user-defined functions.
  */
 #define GEN_LOG_FN( name ) \
@@ -250,4 +252,4 @@ namespace genesis {
 #define GEN_LOG_INFO( str ) do{}while( false )
 #endif
 
-#endif // GENESIS_LOGGER_HPP
+#endif // GENESIS_LOGGER_HXX

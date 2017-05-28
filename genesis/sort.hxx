@@ -12,23 +12,25 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_SORT_HPP
-#define GENESIS_SORT_HPP
+#pragma once
+#ifndef GENESIS_SORT_HXX
+#define GENESIS_SORT_HXX
 
 namespace genesis {
-  /**
-   * Genesis Sort Class.
-   */
-  class sort {
-  public:
+/**
+ * Genesis Sort Class.
+ */
+class sort
+{
+public:
     /**
      * ct
      *
      * @param data - ...
      * @param size - ...
      * @param k - ...
-     */ 
-    static int ct( int* data, int size, int k );
+     */
+    static int ct( int *data, int size, int k );
 
     /**
      * issort
@@ -37,12 +39,12 @@ namespace genesis {
      * @param size - ...
      * @param esize - ...
      * @param compare - ...
-     */  
-    static int issort( void* data, int size, int esize, 
-     int ( *compare )( const void *key1, 
-     const void *key2 ) );
-  };
+     */
+    static int issort( void *data, int size, int esize,
+                       int ( *compare )( const void *key1,
+                                         const void *key2 ) );
+};
 
 }
 
-#endif // GENESIS_SORT_HPP
+#endif // GENESIS_SORT_HXX

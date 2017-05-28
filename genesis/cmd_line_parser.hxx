@@ -12,19 +12,21 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_CMD_LINE_PARSER_HPP
-#define GENESIS_CMD_LINE_PARSER_HPP
+#pragma once
+#ifndef GENESIS_CMD_LINE_PARSER_HXX
+#define GENESIS_CMD_LINE_PARSER_HXX
 
 #include <genesis/proto_types.hxx>
 
 #include <string>
 
 namespace genesis {
-  /**
-   * Genesis Command Line Parser Class.
-   */
-  class cmd_line_parser {
-  public:
+/**
+ * Genesis Command Line Parser Class.
+ */
+class cmd_line_parser
+{
+public:
     /**
      * Constructor.
      */
@@ -42,10 +44,10 @@ namespace genesis {
      * @param argc - Command line argument count.
      * @param argv - Command line argument count.
      */
-    void use_command_args( int argc, char* argv[] );
+    void use_command_args( int argc, char *argv[] );
 
     /**
-     * Prints warning verbose if you set anything wrong 
+     * Prints warning verbose if you set anything wrong
      */
     void set_verbose();
 
@@ -54,7 +56,7 @@ namespace genesis {
      *
      * @param opt_string - Full name of the option.
      */
-    void set_option( char* opt_string );
+    void set_option( char *opt_string );
 
     /**
      * Set option.
@@ -62,7 +64,7 @@ namespace genesis {
      * @param opt_string - Full name of the option.
      * @param opt_char - Short name of the option.
      */
-    void set_option( const char* opt_string, char opt_char );
+    void set_option( const char *opt_string, char opt_char );
 
     /**
      * Set flag.
@@ -106,7 +108,7 @@ namespace genesis {
      * @param argv - Process argv.
      * @param max_args - Number max args.
      */
-    void process_command_args( int argc, char* argv[], int max_args );
+    void process_command_args( int argc, char *argv[], int max_args );
 
     /**
      * Process the specified options.
@@ -114,7 +116,7 @@ namespace genesis {
      * @param argc - Process argc.
      * @param argv - Process argv.
      */
-    void process_command_args( int argc, char* argv[] );
+    void process_command_args( int argc, char *argv[] );
 
     /**
      * Process command args.
@@ -127,7 +129,7 @@ namespace genesis {
      * @param option - Full name of the option.
      * @return Return 0 if no value is set.
      */
-    char* get_value( const std::string option );
+    char *get_value( const std::string option );
 
     /**
      * Get flag.
@@ -143,7 +145,7 @@ namespace genesis {
      * @param option - Short name of the option.
      * @return Return 0 if no value is set.
      */
-    char* get_value( char option );
+    char *get_value( char option );
 
     /**
      * Get flag.
@@ -181,9 +183,9 @@ namespace genesis {
      * @param flag - Name of the flag.
      */
     void auto_usage_print( bool flag );
-	
-    /** 
-     * Get the argument count and arguments sans the 
+
+    /**
+     * Get the argument count and arguments sans the
      * options.
      *
      * @return Return 0 if no value is set.
@@ -191,13 +193,13 @@ namespace genesis {
     int get_argc();
 
     /**
-     * Get the argument count and arguments the 
+     * Get the argument count and arguments the
      * options.
      *
      * @param index - Number of the argument.
      * @return Return 0 if no value is set.
      */
-    char* get_argv( int index );
+    char *get_argv( int index );
 
     /**
      * Check all options.
@@ -206,7 +208,7 @@ namespace genesis {
      */
     bool has_options();
 
-  private:
+private:
     /**
      * Init method.
      */
@@ -224,19 +226,19 @@ namespace genesis {
      * Alloc memory.
      *
      * @return true If success allocating memory.
-     */ 
+     */
     bool alloc();
 
     /**
      * Free memory.
-     */ 
+     */
     void free();
 
     /**
      * Storage values.
      *
      * @return Return set_ if ok.
-     */ 
+     */
     bool value_store_ok();
 
     /**
@@ -246,7 +248,7 @@ namespace genesis {
      * @param value - Name of the value.
      * @return Return true if ok.
      */
-    bool set_value( const char* option, char* value );
+    bool set_value( const char *option, char *value );
 
     /**
      * Set flag on.
@@ -254,7 +256,7 @@ namespace genesis {
      * @param option - Found flag.
      * @return Return true if ok.
      */
-    bool set_flag_on( const char* option );
+    bool set_flag_on( const char *option );
 
     /**
      * Set value.
@@ -263,7 +265,7 @@ namespace genesis {
      * @param value - Name of the value.
      * @return Return true if ok.
      */
-    bool set_value( char option, char* value );
+    bool set_value( char option, char *value );
 
     /**
      * Set flag on.
@@ -277,9 +279,9 @@ namespace genesis {
      * Add options.
      *
      * @param option - Full name of the option.
-     * @param type - Number type option. 
+     * @param type - Number type option.
      */
-    void add_option( const char* option, int type );
+    void add_option( const char *option, int type );
 
     /**
      * Add options.
@@ -295,7 +297,7 @@ namespace genesis {
      * @param val - Find value.
      * @return Return true if ok.
      */
-    bool find_flag( char* val );
+    bool find_flag( char *val );
 
     /**
      * Command set.
@@ -316,14 +318,14 @@ namespace genesis {
      *
      * @param arg - Argument example '-x, -w'.
      */
-    char parse_posix( char* arg );
+    char parse_posix( char *arg );
 
     /**
      * Parse argument GNU.
      *
      * @param arg - Argument example '--xxx=10'.
      */
-    int parse_gnu( char* arg );
+    int parse_gnu( char *arg );
 
     /**
      * Match Option.
@@ -331,7 +333,7 @@ namespace genesis {
      * @param opt - Found option.
      * @return Return 'i' if found option.
      */
-    int match_opt( char* opt );
+    int match_opt( char *opt );
 
     /**
      * Match Character.
@@ -347,14 +349,14 @@ namespace genesis {
      * @param msg1 - Message 1.
      * @param msg2 - Message 2.
      */
-    void print_verbose( const char* msg1, const char* msg2 );
+    void print_verbose( const char *msg1, const char *msg2 );
 
     /**
      * Print verbose message in console.
      *
      * @param msg - Message.
      */
-    void print_verbose( char* msg );
+    void print_verbose( char *msg );
 
     /**
      * Print verbose message in console.
@@ -368,7 +370,7 @@ namespace genesis {
      */
     void print_verbose();
 
-  protected:
+protected:
     /// Command line.
     proto_cmd::argts argts;
 
@@ -392,11 +394,11 @@ namespace genesis {
 
     static bool set_; ///< Was static member
     static bool once_; ///< Was static member
-	
+
     bool has_options_; ///< Has options.
     bool auto_usage_;  ///< Automatic usage.
 
-  };
+};
 }
 
-#endif // GENESIS_CMD_LINE_PARSER_HPP
+#endif // GENESIS_CMD_LINE_PARSER_HXX

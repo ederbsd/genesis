@@ -12,19 +12,13 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_THREAD_HPP
-#define GENESIS_THREAD_HPP
+#pragma once
+#ifndef GENESIS_THREAD_HXX
+#define GENESIS_THREAD_HXX
 
 #include <genesis/logger.hxx>
-#include <genesis/proto_types.hxx>
 #include <genesis/events.hxx>
 #include <genesis/mutex.hxx>
-
-#include <cerrno>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
 
 extern "C" {
 #include <pthread.h>
@@ -32,41 +26,43 @@ extern "C" {
 
 namespace genesis {
 
-  static const int QUE_SIZE = 100;
-  static const int DEFAULT_STACK_SIZE = 0;
-  static const int GEN_SET_TRUE = 1;
-  static const int GEN_SET_FALSE = 0;
+static const int QUE_SIZE = 100;
+static const int DEFAULT_STACK_SIZE = 0;
+static const int GEN_SET_TRUE = 1;
+static const int GEN_SET_FALSE = 0;
 
-  void gen_sleep( unsigned int mseconds );
+void gen_sleep( unsigned int mseconds );
 
-  typedef enum {
+typedef enum {
     TH_BUSY,     ///< Thread is currently handling a task.
     TH_WAITING,  ///< Thread is waiting for something to do.
     TH_DOWN,     ///< Thread is not running.
     TH_SHUTDOWN, ///< Thread is in the process of shut down.
     TH_FAULT     ///< Error has occured and the thread could not be launched.
-  } thread_state_t;
+} thread_state_t;
 
-  typedef enum {
+typedef enum {
     TH_TYPE_EVENT_DRIVEN,
     TH_TYPE_INTERVAL_DRIVEN
-  } thread_type_t;
+} thread_type_t;
 
-  typedef enum {
+typedef enum {
     TASK_STATUS_NOT_SUBMITTED,
     TASK_STATUS_WAITING_ON_QUEUE,
     TASK_STATUS_BEING_PROCESSED,
     TASK_STATUS_COMPLETED
-  } task_status_t;
+} task_status_t;
 
-  class task {
-  public:
+class task
+{
+public:
     /**
      * Constructor.
      */
-    task() {
-      m_state = TASK_STATUS_NOT_SUBMITTED;
-      std::memset( &m_dw_thread, 0, sizeof( proto_th::thread_id_t ) );
+    task()
+    {
+        m_state = TASK_STATUS_NOT_SUBMITTED;
+        std::memset( &m_dw_thread, 0, sizeof( proto_th::thread_id_t ) );
     };
 
     /**
@@ -79,10 +75,11 @@ namespace genesis {
      *
      * @param state - Status.
      */
-    void set_task_status( task_status_t state ) {
-      m_mutex.lock();
-      m_state = state;
-      m_mutex.unlock();
+    void set_task_status( task_status_t state )
+    {
+        m_mutex.lock();
+        m_state = state;
+        m_mutex.unlock();
     }
 
     /**
@@ -90,42 +87,45 @@ namespace genesis {
      *
      * @param pid - Pid running thread.
      */
-    void set_id( proto_th::thread_id_t* pid ) {
-      std::memcpy( &m_dw_thread, pid, sizeof( proto_th::thread_id_t ) );
+    void set_id( proto_th::thread_id_t *pid )
+    {
+        std::memcpy( &m_dw_thread, pid, sizeof( proto_th::thread_id_t ) );
     }
 
     /**
-     * Wait for upto timeout seconds for a task to 
+     * Wait for upto timeout seconds for a task to
      * complete.
      *
      * @param timeout_secs - Timeout seconds.
      */
-    proto_th::GEN_BOOL wait( int timeout_secs ) {
-      timeout_secs = timeout_secs * 1000;
+    proto_th::GEN_BOOL wait( int timeout_secs )
+    {
+        timeout_secs = timeout_secs * 1000;
 
-      if( status() != TASK_STATUS_COMPLETED && timeout_secs > 0 ) {
-        gen_sleep( 100 );
-        timeout_secs = timeout_secs - 100;
-      }
+        if ( status() != TASK_STATUS_COMPLETED && timeout_secs > 0 ) {
+            gen_sleep( 100 );
+            timeout_secs = timeout_secs - 100;
+        }
 
-      if( status() == TASK_STATUS_COMPLETED ) {
-        return GEN_SET_TRUE;
-      }
+        if ( status() == TASK_STATUS_COMPLETED ) {
+            return GEN_SET_TRUE;
+        }
 
-      return GEN_SET_FALSE;
+        return GEN_SET_FALSE;
     }
 
     /**
      * Where returns current state of a task.
      */
-    task_status_t status() {
-      task_status_t state;
+    task_status_t status()
+    {
+        task_status_t state;
 
-      m_mutex.lock();
-      state = m_state;
-      m_mutex.unlock();
+        m_mutex.lock();
+        state = m_state;
+        m_mutex.unlock();
 
-      return state;
+        return state;
     }
 
     /**
@@ -133,8 +133,9 @@ namespace genesis {
      *
      * @param p_id - Id thread.
      */
-    void thread( proto_th::thread_id_t* p_id ) {
-      std::memcpy( p_id, &m_dw_thread, sizeof( proto_th::thread_id_t ) );
+    void thread( proto_th::thread_id_t *p_id )
+    {
+        std::memcpy( p_id, &m_dw_thread, sizeof( proto_th::thread_id_t ) );
     }
 
     /**
@@ -142,22 +143,23 @@ namespace genesis {
      */
     virtual proto_th::GEN_BOOL c_task() = 0;
 
-  private:
+private:
     task_status_t m_state;   ///< Task status.
     proto_th::thread_id_t m_dw_thread; /// DW Thread.
 
-  protected:
+protected:
     mutex m_mutex; ///< Mutex instance.
-  };
+};
 
-  /**
-   * A Genesis Thread represents a separate thread of control within 
-   * the program; it shares data with all the other threads within the 
-   * process but executes independently in the way that a separate program 
-   * does on a multitasking operating system.
-   */
-  class c_thread {
-  public:
+/**
+ * A Genesis Thread represents a separate thread of control within
+ * the program; it shares data with all the other threads within the
+ * process but executes independently in the way that a separate program
+ * does on a multitasking operating system.
+ */
+class c_thread
+{
+public:
     /**
      * Constructor.
      */
@@ -199,7 +201,7 @@ namespace genesis {
      *
      * @param pv_task - Data to be processed by thread.
      */
-    proto_th::GEN_BOOL event( task* pv_task );
+    proto_th::GEN_BOOL event( task *pv_task );
 
     /**
      * Waves up thread to process data.
@@ -218,13 +220,14 @@ namespace genesis {
      */
     proto_th::GEN_BOOL start();
 
-    /** 
+    /**
      * Return thread ID.
-     * 
+     *
      * @param p_id - Thread ID.
      */
-    void get_id( proto_th::thread_id_t* p_id ) {
-      std::memcpy( p_id, &m_dwid, sizeof( proto_th::thread_id_t ) ); 
+    void get_id( proto_th::thread_id_t *p_id )
+    {
+        std::memcpy( p_id, &m_dwid, sizeof( proto_th::thread_id_t ) );
     }
 
     /**
@@ -242,20 +245,21 @@ namespace genesis {
     /**
      * Return state of object.
      */
-    proto_th::GEN_DWORD get_error_flags() { 
-      return this->m_dw_object_condition; 
+    proto_th::GEN_DWORD get_error_flags()
+    {
+        return this->m_dw_object_condition;
     }
- 
+
     /**
      * Specifies the type of threading that is to be performed.
      *
-     * @param typ - An event must be physically sent to the 
+     * @param typ - An event must be physically sent to the
      *              thread using the event member function.
      * @param idl - An event occurs automatically every
      *              dwIdle milli seconds.
      */
-    void set_thread_type( thread_type_t typ = TH_TYPE_EVENT_DRIVEN, 
-      proto_th::GEN_DWORD idl = 100 );
+    void set_thread_type( thread_type_t typ = TH_TYPE_EVENT_DRIVEN,
+                          proto_th::GEN_DWORD idl = 100 );
 
     /**
      * Change the threads idl interval.
@@ -276,26 +280,28 @@ namespace genesis {
      * @param p1 - Thread ID 1.
      * @param p2 - Thread ID 2.
      */
-    static proto_th::GEN_BOOL 
-    thread_ids_equal( proto_th::thread_id_t* p1, proto_th::thread_id_t* p2 ) {
-      return( ( *p1 == *p2 ) ? GEN_SET_TRUE:GEN_SET_FALSE );
+    static proto_th::GEN_BOOL
+    thread_ids_equal( proto_th::thread_id_t *p1, proto_th::thread_id_t *p2 )
+    {
+        return ( ( *p1 == *p2 ) ? GEN_SET_TRUE : GEN_SET_FALSE );
     }
 
     /**
      * Return Thread ID.
      */
-    static proto_th::thread_id_t thread_id() {
-      proto_th::thread_id_t this_threads_id;
-      this_threads_id = (long)pthread_self();
-      return this_threads_id;
+    static proto_th::thread_id_t thread_id()
+    {
+        proto_th::thread_id_t this_threads_id;
+        this_threads_id = (long)pthread_self();
+        return this_threads_id;
     }
 
-  private:
+private:
     events m_event; ///< Event controller.
     proto_th::GEN_BOOL m_brunning; ///< Set to 'true' if thread is running.
     pthread_t m_thread; ///< Thread handle.
     proto_th::thread_id_t m_dwid; ///< Id of this thread.
-    proto_th::GEN_VOID* m_lppvque; ///< Task QUE.
+    proto_th::GEN_VOID *m_lppvque; ///< Task QUE.
 
     unsigned int m_chque; ///< QUE depth.
     unsigned int m_quepos; ///< Current que possition.
@@ -316,22 +322,22 @@ namespace genesis {
     proto_th::GEN_BOOL push( proto_th::GEN_VOID lpv );
 
     /**
-     * Move an object from the input QUE to the 
+     * Move an object from the input QUE to the
      * processor.
      */
     proto_th::GEN_BOOL pop();
 
     /**
-     * Return a value of 'true' if there are no items 
-     * on the thread QUE otherwise a value of 'false' 
+     * Return a value of 'true' if there are no items
+     * on the thread QUE otherwise a value of 'false'
      * is returned.
      */
     proto_th::GEN_BOOL empty();
 
-  protected:
-    
-  };
+protected:
+
+};
 
 }
 
-#endif // GENESIS_THREAD_HPP
+#endif // GENESIS_THREAD_HXX

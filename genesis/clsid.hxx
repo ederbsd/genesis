@@ -12,66 +12,68 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_CLSID_HPP
-#define GENESIS_CLSID_HPP
+#pragma once
+#ifndef GENESIS_CLSID_HXX
+#define GENESIS_CLSID_HXX
 
 #include <genesis/genesis.hxx>
 
 #include <string>
 
 namespace genesis {
-  namespace dynamic_library {
-    class clsid {
-    public:
-      /**
-       * Constructor.
-       */
-      clsid();
+namespace dynamic_library {
+class clsid
+{
+public:
+    /**
+     * Constructor.
+     */
+    clsid();
 
-      /**
-       * Constructor.
-       *
-       * @param clsid - ID Object.
-       */
-      clsid( GEN_IN const clsid& clsid ) ;
+    /**
+     * Constructor.
+     *
+     * @param clsid - ID Object.
+     */
+    clsid( GEN_IN const clsid &clsid ) ;
 
-      /**
-       * Constructor.
-       *
-       * @param str_clsid - ID Object string.
-       */
-      clsid( GEN_IN std::string str_clsid ) ;
+    /**
+     * Constructor.
+     *
+     * @param str_clsid - ID Object string.
+     */
+    clsid( GEN_IN std::string str_clsid ) ;
 
-      /**
-       * Destructor.
-       */
-      virtual ~clsid() ;
-	
-      clsid& operator=( GEN_IN clsid& clsid );
-      clsid& operator=( GEN_IN std::string str_clsid );
+    /**
+     * Destructor.
+     */
+    virtual ~clsid() ;
 
-      bool operator==( GEN_IN genesis::dynamic_library::clsid clsid );
+    clsid &operator=( GEN_IN clsid &clsid );
+    clsid &operator=( GEN_IN std::string str_clsid );
 
-      bool operator==( GEN_IN std::string str_clsid );
-      bool operator==( GEN_IN char* str_clsid );
-      bool operator<( GEN_IN const clsid& clsid ) const;
-      bool operator>( GEN_IN const clsid& clsid ) const;
+    bool operator==( GEN_IN genesis::dynamic_library::clsid clsid );
 
-      /**
-       * Ostream operator print result.
-       *
-       * @param s - Output stream to print.
-       * @param clsid - Point to print.
-       * @return Output stream.
-       */
-      friend std::ostream& operator <<( std::ostream& s,
-       const dynamic_library::clsid& clsid );
+    bool operator==( GEN_IN std::string str_clsid );
+    bool operator==( GEN_IN char *str_clsid );
+    bool operator<( GEN_IN const clsid &clsid ) const;
+    bool operator>( GEN_IN const clsid &clsid ) const;
 
-      /// Long int quadword[4];
-      std::string id_;
-    };
+    /**
+     * Ostream operator print result.
+     *
+     * @param s - Output stream to print.
+     * @param clsid - Point to print.
+     * @return Output stream.
+     */
+    friend std::ostream &operator <<( std::ostream &s,
+                                      const dynamic_library::clsid &clsid );
 
-  }
+    /// Long int quadword[4];
+    std::string id_;
+};
+
+}
 }
 
-#endif // GENESIS_CLSID_HPP
+#endif // GENESIS_CLSID_HXX

@@ -12,12 +12,12 @@
  * $Id: Exp$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
+#ifndef GENESIS_SYSTEM_HXX
 #include <genesis/system.hxx>
+#endif
+#ifndef GENESIS_LOGGER_HXX
 #include <genesis/logger.hxx>
+#endif
 
 #include <cstdlib>
 #include <cstring>
@@ -29,59 +29,59 @@ extern "C" {
 
 namespace genesis {
 
-  char** system::list_files( const std::string path )
-  {
+char **system::list_files( const std::string path )
+{
     GEN_ABORT_TRUE_OR_ERROR( path.empty() == 0, "Invalid! Path empty." );
 
-    DIR* dir_ = opendir( path.c_str() );
+    DIR *dir_ = opendir( path.c_str() );
 
-    struct dirent* dp; // Returned from read dir.
+    struct dirent *dp; // Returned from read dir.
     size_t filecount = 0; // Number of entries in directory.
     int i = 0;
 
     char **files = 0;
 
-    if( dir_ == 0 ) {
-      return 0;
+    if ( dir_ == 0 ) {
+        return 0;
     }
 
     // Count number of files and subdirectories.
-    while(( dp = readdir( dir_ ) ) != 0 ) {
-      filecount++;
+    while (( dp = readdir( dir_ ) ) != 0 ) {
+        filecount++;
     }
 
     // Allocate space for the result.
-    files = new char*[ ( char )filecount ];
+    files = new char *[ ( char )filecount ];
 
-    if( files == 0 ) {
-      return 0;
+    if ( files == 0 ) {
+        return 0;
     }
 
     // Collect all filenames.
     rewinddir( dir_ );
-    while(( dp = readdir( dir_ ) ) != 0 ) {
-      files[i] = strdup( dp->d_name );
-        
-      if( files[i] == 0 ) {
-        // Memory allocation failure; free what's been allocated
-        // so far and return 0.
-        GEN_ASSERT( i > 0 );
-        while( i > 0 ) {
-          std::free( files[--i] );
+    while (( dp = readdir( dir_ ) ) != 0 ) {
+        files[i] = strdup( dp->d_name );
+
+        if ( files[i] == 0 ) {
+            // Memory allocation failure; free what's been allocated
+            // so far and return 0.
+            GEN_ASSERT( i > 0 );
+            while ( i > 0 ) {
+                std::free( files[--i] );
+            }
+            std::free( files );
+            return 0;
         }
-        std::free( files );
-        return 0;
-      }
-      printf( "%d: %s\n", i, dp->d_name );
-      i++;
+        printf( "%d: %s\n", i, dp->d_name );
+        i++;
     }
- 
+
     ( void )closedir( dir_ );
     return files;
-  }
+}
 
-  bool system::copy_file( const std::string& from, const std::string& to )
-  {
+bool system::copy_file( const std::string &from, const std::string &to )
+{
     GEN_ABORT_TRUE_OR_ERROR( from.empty() == 0, "Invalid! From empty." );
     GEN_ABORT_TRUE_OR_ERROR( to.empty() == 0, "Invalid! To empty." );
 
@@ -90,10 +90,10 @@ namespace genesis {
     out << in.rdbuf();
 
     return true;
-  }
+}
 
-  int system::exec_cmd( const std::string cmd )
-  {
+int system::exec_cmd( const std::string cmd )
+{
     GEN_ABORT_TRUE_OR_ERROR( cmd.empty() == 0, "Invalid! Cmd empty." );
 
     int exec = std::system( cmd.c_str() );
@@ -101,10 +101,10 @@ namespace genesis {
     GEN_TRUE_OR_ERROR( exec == 0, "Invalid command!" );
 
     return exec;
-  }
+}
 
-  int system::remove( const std::string path )
-  {
+int system::remove( const std::string path )
+{
     GEN_ABORT_TRUE_OR_ERROR( path.empty() == 0, "Invalid! Path empty." );
 
     int rm = std::remove( path.c_str() );
@@ -112,10 +112,10 @@ namespace genesis {
     GEN_TRUE_OR_ERROR( rm == 0, "Erro removing!" );
 
     return rm;
-  }
+}
 
-  int system::rename( const std::string from, const std::string to )
-  {
+int system::rename( const std::string from, const std::string to )
+{
     GEN_ABORT_TRUE_OR_ERROR( from.empty() == 0, "Invalid! From empty." );
     GEN_ABORT_TRUE_OR_ERROR( to.empty() == 0, "Invalid! To empty." );
 
@@ -124,5 +124,5 @@ namespace genesis {
     GEN_TRUE_OR_ERROR( rne == 0, "Erro rename!" );
 
     return rne;
-  }
+}
 }

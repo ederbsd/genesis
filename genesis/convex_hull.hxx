@@ -12,23 +12,25 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_CONVEX_HULL_HPP
-#define GENESIS_CONVEX_HULL_HPP
+#pragma once
+#ifndef GENESIS_CONVEX_HULL_HXX
+#define GENESIS_CONVEX_HULL_HXX
 
 #include <genesis/plotting.hxx>
 
 namespace genesis {
-  /**
-   * Genesis Convex Hull, class using Graham scan algorithm to 
-   * calculate the convex hull of a batch of points.
-   */
-  class convex_hull : public plotting {
-  public:
+/**
+ * Genesis Convex Hull, class using Graham scan algorithm to
+ * calculate the convex hull of a batch of points.
+ */
+class convex_hull : public plotting
+{
+public:
     /**
      * Constructor.
      *
      * I generate the N random points asked for by the caller.
-     * Their values are randomly assigned in the x/y ranges specified 
+     * Their values are randomly assigned in the x/y ranges specified
      * as arguments.
      *
      * @param n - Numbers points generated.
@@ -46,7 +48,7 @@ namespace genesis {
      * @param m - Message cout.
      * @param plot - Generate the graph, (default no).
      */
-    void print_raw_points( std::ostream& f, std::ostream& m, bool plot = false );
+    void print_raw_points( std::ostream &f, std::ostream &m, bool plot = false );
 
     /**
      * Print Partitioned Points.
@@ -55,7 +57,7 @@ namespace genesis {
      * @param m - Message cout.
      * @param plot - Generate the graph, (default no).
      */
-    void print_partitioned_points( std::ostream& f, std::ostream& m, bool plot = false );
+    void print_partitioned_points( std::ostream &f, std::ostream &m, bool plot = false );
 
     /**
      * Print Convex Hull.
@@ -64,9 +66,9 @@ namespace genesis {
      * @param m - Message cout.
      * @param plot - Generate the graph, (default no).
      */
-    void print_hull( std::ostream& f, std::ostream& m, bool plot = false );
+    void print_hull( std::ostream &f, std::ostream &m, bool plot = false );
 
-  private:
+private:
     /**
      * Building the hull consists of two procedures: building the lower and
      * then the upper hull. The two procedures are nearly identical - the main
@@ -81,7 +83,7 @@ namespace genesis {
      * @param f - File Ostream.
      * @param plot - Generate the graph, (default no).
      */
-    void build_hull( std::ostream& f, bool plot = false );
+    void build_hull( std::ostream &f, bool plot = false );
 
     /**
      * The initial array of points is stored in vectgor raw_points. I first
@@ -102,10 +104,10 @@ namespace genesis {
     void partition_points();
 
     /**
-     * This is the method that builds either the upper or the lower half 
-     * convex hull. It takes as its input a copy of the input array, 
-     * which will be the sorted list of points in one of the two halfs. 
-     * It produces as output a list of the points in the corresponding 
+     * This is the method that builds either the upper or the lower half
+     * convex hull. It takes as its input a copy of the input array,
+     * which will be the sorted list of points in one of the two halfs.
+     * It produces as output a list of the points in the corresponding
      * convex hull.
      *
      * The factor should be 1 for the lower hull, and -1 for the upper hull.
@@ -115,11 +117,11 @@ namespace genesis {
      * @param output - Ouput points.
      * @param factor - Factor hull.
      */
-    void build_half_hull( std::ostream& f,
-     std::vector< std::pair<int,int> > input,
-     std::vector< std::pair<int,int> > &output, int factor );
+    void build_half_hull( std::ostream &f,
+                          std::vector< std::pair<int, int> > input,
+                          std::vector< std::pair<int, int> > &output, int factor );
 
-  protected:
+protected:
     /**
      * In running application we frequently want to look at three consecutive
      * points, p0, p1, and p2, and determine whether p2 has taken a turn
@@ -134,8 +136,8 @@ namespace genesis {
      * @param p1 - Point 1.
      * @param p2 - Point 2.
      */
-    static int direction( std::pair<int,int> p0, std::pair<int,int> p1,
-     std::pair<int,int> p2 );
+    static int direction( std::pair<int, int> p0, std::pair<int, int> p1,
+                          std::pair<int, int> p2 );
 
     /**
      * Ostream operator print result.
@@ -144,8 +146,8 @@ namespace genesis {
      * @param point - Point to print.
      * @return Output stream.
      */
-    friend std::ostream& operator <<( std::ostream& s, 
-     const std::pair<int,int>& point );
+    friend std::ostream &operator <<( std::ostream &s,
+                                      const std::pair<int, int> &point );
 
     /// Used in method build_hull.
     bool build_plot_;
@@ -157,40 +159,40 @@ namespace genesis {
     const size_t N_;
 
     ///< Range of numbers X.
-    const std::pair<int,int> x_range_;
+    const std::pair<int, int> x_range_;
 
     ///< Range of numbers Y.
-    const std::pair<int,int> y_range_; 
+    const std::pair<int, int> y_range_;
 
     /// The raw data points generated by the constructor.
-    std::vector< std::pair<int,int> > raw_points_;
+    std::vector< std::pair<int, int> > raw_points_;
 
     /// Partitioned set Left.
-    std::pair<int,int> left_;
+    std::pair<int, int> left_;
 
     /// Partitioned set Rigth.
-    std::pair<int,int> right_;
+    std::pair<int, int> right_;
 
     /// Partitioned sorted set of upper.
-    std::vector< std::pair<int,int> > upper_partition_points_;
+    std::vector< std::pair<int, int> > upper_partition_points_;
 
     /// Partitioned sorted set of lower
-    std::vector< std::pair<int,int> > lower_partition_points_;
+    std::vector< std::pair<int, int> > lower_partition_points_;
 
     /**
      * The lower hull and upper hull are stored in these
      * sorted sequences.
      */
-    std::vector< std::pair<int,int> > lower_hull_;
+    std::vector< std::pair<int, int> > lower_hull_;
 
     /**
      * There is a bit of duplication between the two because
      * both sets include the leftmost and rightmost point.
      */
-    std::vector< std::pair<int,int> > upper_hull_;
+    std::vector< std::pair<int, int> > upper_hull_;
 
-  };
+};
 
 }
 
-#endif // GENESIS_CONVEX_HULL_HPP
+#endif // GENESIS_CONVEX_HULL_HXX

@@ -12,17 +12,19 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_EVENTS_HPP
-#define GENESIS_EVENTS_HPP
+#pragma once
+#ifndef GENESIS_EVENTS_HXX
+#define GENESIS_EVENTS_HXX
 
 #include <genesis/proto_types.hxx>
 
 namespace genesis {
-  /**
-   * A Genesis event thread objects.
-   */
-  class events {
-  public:
+/**
+ * A Genesis event thread objects.
+ */
+class events
+{
+public:
     /**
      * Constructor.
      */
@@ -51,12 +53,12 @@ namespace genesis {
 
     proto_th::GEN_BOOL m_bcreated; ///< Check event created.
 
-  private:
+private:
     pthread_cond_t m_ready;
     pthread_mutex_t m_lock;
 
-  };
+};
 
 }
 
-#endif // GENESIS_EVENTS_HPP
+#endif // GENESIS_EVENTS_HXX

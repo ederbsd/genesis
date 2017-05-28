@@ -12,26 +12,28 @@
  * $Id: Exp$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
+#ifndef GENESIS_GENESIS_HXX
 #include <genesis/genesis.hxx>
+#endif
+#ifndef GENESIS_LOGGER_HXX
 #include <genesis/logger.hxx>
+#endif
+#ifndef GENESIS_STRING_UTIL_HXX
 #include <genesis/string_util.hxx>
+#endif
 
 namespace genesis {
 
-  library::library()
-  {
-  }
+library::library()
+{
+}
 
-  library::~library()
-  {
-  }
+library::~library()
+{
+}
 
-  void library::check_build_details()
-  {
+void library::check_build_details()
+{
     GEN_MSG( "Compilation Details:\n" );
     GEN_MSG( "      Build Date: " __DATE__ " " __TIME__ );
     GEN_MSG( "      Build Version: " __VERSION__ );
@@ -43,33 +45,33 @@ namespace genesis {
     GEN_MSG( "      Build Optimized: No" );
 #endif
 #ifdef __STDC__
-    GEN_MSG( "      ISO Standard: Yes" ); 
+    GEN_MSG( "      ISO Standard: Yes" );
 #else
     GEN_MSG( "      ISO Standard: No" );
 #endif
-  }
+}
 
-  const char* library::version()
-  {
+const char *library::version()
+{
     static std::string v( string_util::to_uppercase( PACKAGE ) +
                           ", Version " VERSION + "\n" +
                           "Copyright 2009 "
                           "Ederson de Moura" );
 
     return v.c_str();
-  }
+}
 
-  const char* library::package()
-  {
+const char *library::package()
+{
     static std::string p( string_util::to_uppercase( PACKAGE ) );
     return p.c_str();
-  }
+}
 
-  bool library::is_big_endian()
-  {
+bool library::is_big_endian()
+{
     unsigned int a = 1;
-    unsigned char* b = ( unsigned char* )& a;
-    return( *b ? false : true );
-  }
+    unsigned char *b = ( unsigned char * )& a;
+    return ( *b ? false : true );
+}
 
 }

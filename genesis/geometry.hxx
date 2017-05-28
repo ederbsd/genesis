@@ -12,11 +12,11 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_GEOMETRY_HPP
-#define GENESIS_GEOMETRY_HPP
+#pragma once
+#ifndef GENESIS_GEOMETRY_HXX
+#define GENESIS_GEOMETRY_HXX
 
 #include <genesis/datetime.hxx>
-#include <genesis/list.hxx>
 #include <genesis/logger.hxx>
 
 namespace genesis {
@@ -28,41 +28,42 @@ namespace genesis {
 #define GEN_GEOMETRY_PI_4 0.78539816339744830961566084581988
 #endif
 
-  /**
-   * Genesis Geometry Class.
-   */ 
-  class geometry {
-  public:
+/**
+ * Genesis Geometry Class.
+ */
+class geometry
+{
+public:
     /**
-     * 
+     *
      */
-    static int lint( proto_geo::point_rect_coord p1, 
-                     proto_geo::point_rect_coord p2, 
-                     proto_geo::point_rect_coord p3, 
+    static int lint( proto_geo::point_rect_coord p1,
+                     proto_geo::point_rect_coord p2,
+                     proto_geo::point_rect_coord p3,
                      proto_geo::point_rect_coord p4 );
 
     /**
      *
-     */ 
-    static void arclen( proto_geo::point_spher_coord p1, 
-                        proto_geo::point_spher_coord p2, 
-                        double* length, std::string unit );
+     */
+    static void arclen( proto_geo::point_spher_coord p1,
+                        proto_geo::point_spher_coord p2,
+                        double *length, std::string unit );
 
     /**
      * Approximates the distance between two points on Earth.
      *
-     * @param lat1 - The latitude of the position in degrees within 
+     * @param lat1 - The latitude of the position in degrees within
      *               the range [-90, 90].
-     * @param lon1 - The longitude of the position in degrees within 
+     * @param lon1 - The longitude of the position in degrees within
      *               the range [-180, 180].
-     * @param lat2 - The latitude of the position in degrees within 
+     * @param lat2 - The latitude of the position in degrees within
      *               the range [-90, 90].
-     * @param lon2 - The longitude of the position in degrees within 
+     * @param lon2 - The longitude of the position in degrees within
      *               the range [-180, 180]
      * @param d - Returns the distance, default 0.
      * @param unit -
      */
-    static int geodist( double lat1, double lon1, double lat2, 
+    static int geodist( double lat1, double lon1, double lat2,
                         double lon2, double *d, std::string unit );
 
     /**
@@ -73,39 +74,40 @@ namespace genesis {
      * @param b - The y semi-axis (depth).
      * @param c - The z semi-axis (height).
      */
-    inline static double ellipsoidal_cap( double x, double a, 
-                                           double b, double c ) {
-      GEN_ASSERT( x >= -c && x <= c );
-      return GEN_GEOMETRY_PI * a * b * ( 2.0 * c / 3.0 - x + x * x * x / 
-                                       ( 3.0 * c * c ) );
+    inline static double ellipsoidal_cap( double x, double a,
+                                          double b, double c )
+    {
+        GEN_ASSERT( x >= -c && x <= c );
+        return GEN_GEOMETRY_PI * a * b * ( 2.0 * c / 3.0 - x + x * x * x /
+                                           ( 3.0 * c * c ) );
     };
 
     /**
      * Puts a large angle in the correct range 0 - 360 degrees.
      *
      * @param angle - Angle.
-     */ 
+     */
     static double range_degrees( double angle );
 
     /**
      * Human readable equatorial position to double equatorial position.
      *
-     * @param hpos - Equatorial coordinates. 
+     * @param hpos - Equatorial coordinates.
      * @param pos - Equatorial coordinates.
      */
-    static void hequ_to_equ( proto_geo::point_nh_equ_posn* hpos, 
-                             proto_geo::point_equ_posn* pos );
+    static void hequ_to_equ( proto_geo::point_nh_equ_posn *hpos,
+                             proto_geo::point_equ_posn *pos );
 
     /**
-     * Human readable longitude and latitude position to double 
+     * Human readable longitude and latitude position to double
      * long/lat position.
      *
-     * @param hpos - Hpos. 
+     * @param hpos - Hpos.
      * @param pos - Pos.
      */
-    static void hlnlat_to_lnlat( proto_geo::point_nh_lonlat_posn* hpos, 
-                                 proto_geo::point_lon_lat_posn* pos );
-  };
+    static void hlnlat_to_lnlat( proto_geo::point_nh_lonlat_posn *hpos,
+                                 proto_geo::point_lon_lat_posn *pos );
+};
 
 /// Define macros for comparisons.
 #define GEN_GEOMETRY_MIN( x, y ) (( ( x ) < ( y ) ) ? ( x ) : ( y ) )
@@ -120,4 +122,4 @@ namespace genesis {
 
 }
 
-#endif // GENESIS_GEOMETRY_HPP
+#endif // GENESIS_GEOMETRY_HXX

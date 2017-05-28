@@ -12,8 +12,9 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_GENESIS_HPP
-#define GENESIS_GENESIS_HPP
+#pragma once
+#ifndef GENESIS_GENESIS_HXX
+#define GENESIS_GENESIS_HXX
 
 /// Name package project.
 #define PACKAGE "genesis"
@@ -27,19 +28,20 @@
 #include <cstdio>
 
 namespace genesis {
-  /**
-   * Class Genesis Library.
-   */
-  class library {
-  public:
+/**
+ * Class Genesis Library.
+ */
+class library
+{
+public:
     /**
      * Destructor.
      */
     virtual ~library();
 
     /**
-     * Shows details of the compilation. 
-     */  
+     * Shows details of the compilation.
+     */
     static void check_build_details();
 
     /**
@@ -47,14 +49,14 @@ namespace genesis {
      *
      * @return Library version string.
      */
-    static const char* version();
+    static const char *version();
 
     /**
      * Get information the package.
      *
      * @return Package string.
      */
-    static const char* package();
+    static const char *package();
 
     /**
      * Check computer architecture is Big Endian.
@@ -63,18 +65,19 @@ namespace genesis {
      */
     static bool is_big_endian();
 
-  private:
+private:
     /**
      * Private Constructor.
-     */ 
+     */
     library();
-  };
+};
 
-  /**
-   * Genesis Types Class.
-   */
-  class types : public library {
-  public:
+/**
+ * Genesis Types Class.
+ */
+class types : public library
+{
+public:
     /**
      * Destructor.
      */
@@ -82,12 +85,12 @@ namespace genesis {
 
     /// Type Vector.
     typedef double vector[3];
-    
+
     /// Type Matrix.
     typedef double matrix[9];
-  };
+};
 
-/** 
+/**
  * Namespace Used only for the module Dynamic Library.
  */
 namespace dynamic_library {
@@ -103,19 +106,19 @@ namespace dynamic_library {
 /// Some data types.
 typedef signed long GEN_LIBRARY_HRESULT;
 
-/** 
- * Returns a factory object for the objects defined in 
+/**
+ * Returns a factory object for the objects defined in
  * the library.
  */
 class factory;
-typedef factory* ( * get_class_object_func ) ();
+typedef factory *( * get_class_object_func ) ();
 
 /**
- * Enumerates the available classes in a NULL-terminated 
+ * Enumerates the available classes in a NULL-terminated
  * array.
  */
 class clsid;
-typedef clsid* ( * get_available_classes_func ) ();
+typedef clsid *( * get_available_classes_func ) ();
 
 }
 
@@ -128,4 +131,4 @@ namespace {
 
 }
 
-#endif // GENESIS_GENESIS_HPP
+#endif // GENESIS_GENESIS_HXX

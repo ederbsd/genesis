@@ -12,17 +12,19 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_BITREE_HPP
-#define GENESIS_BITREE_HPP
+#pragma once
+#ifndef GENESIS_BITREE_HXX
+#define GENESIS_BITREE_HXX
 
 #include <genesis/proto_types.hxx>
 
 namespace genesis {
-  /**
-   * Genesis Bitree Class.
-   */
-  class bitree {
-  public:
+/**
+ * Genesis Bitree Class.
+ */
+class bitree
+{
+public:
     /**
      * Constructor.
      */
@@ -30,7 +32,7 @@ namespace genesis {
 
     /**
      * Destructor.
-     */ 
+     */
     virtual ~bitree();
 
     /**
@@ -39,16 +41,16 @@ namespace genesis {
      * @param tree - Object tree.
      * @param destroy - Destroy object.
      * @param data - The data.
-     */ 
-    void init( proto_bitree::tree* tree, 
-     void( *destroy ) ( void *data ) );
+     */
+    void init( proto_bitree::tree *tree,
+               void( *destroy ) ( void *data ) );
 
     /**
      * Destroy tree.
      *
      * @param tree - Object tree destroy.
-     */ 
-    void destroy( proto_bitree::tree* tree );
+     */
+    void destroy( proto_bitree::tree *tree );
 
     /**
      * Nodes in left.
@@ -57,9 +59,9 @@ namespace genesis {
      * @param node - Object node.
      * @param data - Object data.
      * @return Return integer nodes.
-     */ 
-    int ins_left( proto_bitree::tree* tree, proto_bitree::node_avl* node,
-     const void* data );
+     */
+    int ins_left( proto_bitree::tree *tree, proto_bitree::node_avl *node,
+                  const void *data );
 
     /**
      * Nodes in right.
@@ -69,8 +71,8 @@ namespace genesis {
      * @param data - Object data.
      * @return Return integer nodes.
      */
-    int ins_right( proto_bitree::tree* tree, 
-     proto_bitree::node_avl* node, const void* data );
+    int ins_right( proto_bitree::tree *tree,
+                   proto_bitree::node_avl *node, const void *data );
 
     /**
      * Remove nodes left.
@@ -78,7 +80,7 @@ namespace genesis {
      * @param tree - Object tree.
      * @param node - Object node.
      */
-    void rem_left( proto_bitree::tree* tree, proto_bitree::node_avl* node );
+    void rem_left( proto_bitree::tree *tree, proto_bitree::node_avl *node );
 
     /**
      * Remove nodes right.
@@ -86,32 +88,32 @@ namespace genesis {
      * @param tree - Object tree.
      * @param node - Object node.
      */
-    void rem_right( proto_bitree::tree* tree, proto_bitree::node_avl* node );
+    void rem_right( proto_bitree::tree *tree, proto_bitree::node_avl *node );
 
     /**
      * Merge between nodes.
      *
      * @param left  - Object tree.
      * @param right - Object tree.
-     * @param data  - The data objects. 
+     * @param data  - The data objects.
      */
-    int merge( proto_bitree::tree* merge, proto_bitree::tree* left, 
-     proto_bitree::tree* right, const void* data );
-  };
+    int merge( proto_bitree::tree *merge, proto_bitree::tree *left,
+               proto_bitree::tree *right, const void *data );
+};
 
-  /*
-  class transfer : public bitree {
-  public:
-    virtual ~transfer() {};
+/*
+class transfer : public bitree {
+public:
+  virtual ~transfer() {};
 
-    int send_comp( int s, const unsigned char* data, int size, int flags ) {
-      return 0;
-    }
+  int send_comp( int s, const unsigned char* data, int size, int flags ) {
+    return 0;
+  }
 
-    int recv_comp( int s, unsigned char** data, int* size, int flags ) {
-      return 0;
-    }
-  };*/
+  int recv_comp( int s, unsigned char** data, int* size, int flags ) {
+    return 0;
+  }
+};*/
 
 #define GEN_BITREE_SIZE( tree ) (( tree )->size )
 #define GEN_BITREE_ROOT( tree ) (( tree )->root )
@@ -123,4 +125,4 @@ namespace genesis {
 
 }
 
-#endif // GENESIS_BITREE_HPP
+#endif // GENESIS_BITREE_HXX

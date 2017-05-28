@@ -12,28 +12,30 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_SYSTEM_HPP
-#define GENESIS_SYSTEM_HPP
+#pragma once
+#ifndef GENESIS_SYSTEM_HXX
+#define GENESIS_SYSTEM_HXX
 
 #include <string>
 
 namespace genesis {
-  /**
-   * Genesis System Class.
-   */
-  class system {
-  public:
+/**
+ * Genesis System Class.
+ */
+class system
+{
+public:
     /**
      * List files in a directory.
      *
      * @param path - Where is the directory to be listed?
      */
-    static char** list_files( const std::string path );
+    static char **list_files( const std::string path );
 
     /**
      * Copy file.
      */
-    static bool copy_file( const std::string& from, const std::string& to );
+    static bool copy_file( const std::string &from, const std::string &to );
 
     /**
      * Exec system command.
@@ -57,7 +59,7 @@ namespace genesis {
      */
     static int rename( const std::string from, const std::string to );
 
-  };
+};
 }
 
-#endif // GENESIS_SYSTEM_HPP
+#endif // GENESIS_SYSTEM_HXX

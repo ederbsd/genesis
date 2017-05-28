@@ -12,12 +12,12 @@
  * $Id: Exp$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
+#ifndef GENESIS_DATETIME_HXX
 #include <genesis/datetime.hxx>
+#endif
+#ifndef GENESIS_GEOMETRY_HXX
 #include <genesis/geometry.hxx>
+#endif 
 
 #include <cstring>
 #include <cstdlib>
@@ -26,9 +26,8 @@ static const int DYNAMICAL_TIME_TERMS = 192;
 
 namespace genesis {
 
-  /// Dynamical time in seconds for every second year from 1620 to 1992.
-  const static double delta_t[DYNAMICAL_TIME_TERMS] =
-  {   
+/// Dynamical time in seconds for every second year from 1620 to 1992.
+const static double delta_t[DYNAMICAL_TIME_TERMS] = {
     124.0, 115.0, 106.0, 98.0, 91.0,
     85.0, 79.0, 74.0, 70.0, 65.0,
     62.0, 58.0, 55.0, 53.0, 50.0,
@@ -67,24 +66,29 @@ namespace genesis {
     40.2, 42.2, 44.5, 46.5, 48.5,
     50.5, 52.2, 53.8, 54.9, 55.8,
     56.9, 58.3
-  };
+};
 
-  int datetime::current_datetime()
-  {
+int datetime::current_datetime()
+{
     time_t current = time( 0 );
-    std::cout << ctime( &current ) << std::endl; 
+    std::cout << ctime( &current ) << std::endl;
     return 0;
-  }
+}
 
-  void datetime::get_date( double JD, proto_datetime::date* date )
-  {
+void datetime::get_date( double JD, proto_datetime::date *date )
+{
     volatile register int A asm ("eax");
     volatile register int a asm ("eax");
     volatile register int B asm ("eax");
     volatile register int C asm ("eax");
     volatile register int D asm ("eax");
     volatile register int E asm ("eax");
-    A = 0; a = 0; B = 0; C = 0; D = 0; E = 0;
+    A = 0;
+    a = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
 
     double F = 0.0;
     double Z = 0.0;
@@ -93,11 +97,11 @@ namespace genesis {
     Z = ( int )JD;
     F = JD - Z;
 
-    if( Z < 2299161 ) {
-       A = ( int )Z;
+    if ( Z < 2299161 ) {
+        A = ( int )Z;
     } else {
-       a = ( int )(( Z - 1867216.25 ) / 36524.25 );
-       A = ( int )( Z + 1 + a - ( int )( a / 4 ));
+        a = ( int )(( Z - 1867216.25 ) / 36524.25 );
+        A = ( int )( Z + 1 + a - ( int )( a / 4 ));
     }
 
     B = A + 1524;
@@ -116,22 +120,22 @@ namespace genesis {
     date->days = B - D - ( int )( 30.6001 * E );
 
     // Get the month.
-    if( E < 14 ) {
-       date->months = E - 1;
+    if ( E < 14 ) {
+        date->months = E - 1;
     } else {
-       date->months = E - 13;
+        date->months = E - 13;
     }
 
     // Get the year.
-    if( date->months > 2 ) {
-       date->years = C - 4716;
+    if ( date->months > 2 ) {
+        date->years = C - 4716;
     } else {
-       date->years = C - 4715;
+        date->years = C - 4715;
     }
-  }
+}
 
-  void datetime::get_date_from_tm( struct tm* t, proto_datetime::date* date )
-  {
+void datetime::get_date_from_tm( struct tm *t, proto_datetime::date *date )
+{
     // Fill in date struct.
     date->seconds = t->tm_sec;
     date->minutes = t->tm_min;
@@ -139,20 +143,20 @@ namespace genesis {
     date->days = t->tm_mday;
     date->months = t->tm_mon + 1;
     date->years = t->tm_year + 1900;
-  }
+}
 
-  void datetime::get_date_from_timet( time_t* t, proto_datetime::date* date )
-  {
+void datetime::get_date_from_timet( time_t *t, proto_datetime::date *date )
+{
     struct tm gmt;
 
     // Convert to UTC time representation.
     gmtime_r( t, &gmt );
     get_date_from_tm( &gmt, date );
-  }
+}
 
-  void datetime::get_date_from_sys( proto_datetime::date* date )
-  {
-    struct tm * gmt;
+void datetime::get_date_from_sys( proto_datetime::date *date )
+{
+    struct tm *gmt;
 
 #ifndef __WIN32__
     struct timeval tv;
@@ -183,59 +187,59 @@ namespace genesis {
     date->days = gmt->tm_mday;
     date->months = gmt->tm_mon + 1;
     date->years = gmt->tm_year + 1900;
-  }
+}
 
-  int datetime::get_date_from_mpc( proto_datetime::date* date, char* mpc_date )
-  {
+int datetime::get_date_from_mpc( proto_datetime::date *date, char *mpc_date )
+{
     char year[3];
     char month[2];
     char day[2];
 
     // Is mpc_date correct length.
-    if( std::strlen( mpc_date ) != 5 ) {
-      return -1;
+    if ( std::strlen( mpc_date ) != 5 ) {
+        return -1;
     }
 
-        /* get the century */
-        switch (*mpc_date) {
-                case 'I':
-                        date->years = 1800;
-                break;
-                case 'J':
-                        date->years = 1900;
-                break;
-                case 'K':
-                        date->years = 2000;
-                break;
-                default:
-                        return -1;
-        }
+    /* get the century */
+    switch (*mpc_date) {
+    case 'I':
+        date->years = 1800;
+        break;
+    case 'J':
+        date->years = 1900;
+        break;
+    case 'K':
+        date->years = 2000;
+        break;
+    default:
+        return -1;
+    }
 
-        /* get the year */
-        year[0] = *(mpc_date + 1);
-        year[1] = *(mpc_date + 2);
-        year[2] = 0;
-        date->years += std::strtol( year, 0, 10 );
+    /* get the year */
+    year[0] = *(mpc_date + 1);
+    year[1] = *(mpc_date + 2);
+    year[2] = 0;
+    date->years += std::strtol( year, 0, 10 );
 
-        /* month */
-        month[0] = *(mpc_date + 3);
-        month[1] = 0;
-        date->months = strtol (month, 0, 16);
+    /* month */
+    month[0] = *(mpc_date + 3);
+    month[1] = 0;
+    date->months = strtol (month, 0, 16);
 
-        /* day */
-        day[0] = *(mpc_date + 4);
-        day[1] = 0;
-        date->days = strtol (day, 0, 31);
+    /* day */
+    day[0] = *(mpc_date + 4);
+    day[1] = 0;
+    date->days = strtol (day, 0, 31);
 
-        /* reset hours,min,secs to 0 */
-        date->hours = 0;
-        date->minutes = 0;
-        date->seconds = 0;
-        return 0;
-  }
+    /* reset hours,min,secs to 0 */
+    date->hours = 0;
+    date->minutes = 0;
+    date->seconds = 0;
+    return 0;
+}
 
-  double datetime::hms_to_deg( proto_datetime::hms* hms )
-  {
+double datetime::hms_to_deg( proto_datetime::hms *hms )
+{
     double degrees = 0.0;
 
     degrees = ( ( double )hms->hours / 24 ) * 360;
@@ -243,10 +247,10 @@ namespace genesis {
     degrees += ( ( double )hms->seconds / 60 ) * 0.25;
 
     return degrees;
-  }
+}
 
-  double datetime::dms_to_deg( proto_datetime::dms* dms )
-  {
+double datetime::dms_to_deg( proto_datetime::dms *dms )
+{
     double degrees = 0.0;
 
     degrees =  std::fabs( ( double )dms->degrees );
@@ -254,25 +258,25 @@ namespace genesis {
     degrees += std::fabs( ( double )dms->seconds / 3600 );
 
     // Is negative?
-    if( dms->neg ) {
-      degrees *= -1.0;
+    if ( dms->neg ) {
+        degrees *= -1.0;
     }
 
     return degrees;
-  }
+}
 
-  void datetime::deg_to_dms( double degrees, proto_datetime::dms* dms )
-  {
+void datetime::deg_to_dms( double degrees, proto_datetime::dms *dms )
+{
     double dtemp;
 
     if (degrees >= 0)
-                dms->neg = 0;
-        else
-                dms->neg = 1;
+        dms->neg = 0;
+    else
+        dms->neg = 1;
 
-        degrees = fabs(degrees);
-        dms->degrees = (int)degrees;
-        dtemp = degrees - dms->degrees;
+    degrees = fabs(degrees);
+    dms->degrees = (int)degrees;
+    dtemp = degrees - dms->degrees;
 
     /* divide remainder by 60 to get minutes */
     dms->minutes = dtemp = dtemp * 60;
@@ -291,15 +295,15 @@ namespace genesis {
         dms->degrees ++;
     }
 
-  }
+}
 
-  void datetime::deg_to_hms( double degrees, proto_datetime::hms* hms )
-  {
+void datetime::deg_to_hms( double degrees, proto_datetime::hms *hms )
+{
     double dtemp;
 
     degrees = geometry::range_degrees( degrees );
 
-        /* divide degrees by 15 to get the hours */
+    /* divide degrees by 15 to get the hours */
     hms->hours = dtemp = degrees / 15.0;
     dtemp -= hms->hours;
 
@@ -320,132 +324,139 @@ namespace genesis {
         hms->hours ++;
     }
 
-  }
+}
 
-  void datetime::msleep( int miliseconds )
-  {    
+void datetime::msleep( int miliseconds )
+{
     clock_t end_wait = 0;
     end_wait = clock() + miliseconds * CLOCKS_PER_SEC / 1000;
-    while( clock() < end_wait ) {}
-  }
+    while ( clock() < end_wait ) {}
+}
 
-  double dynamical_time::get_dynamical_diff_sh1( double JD )
-  {
+void datetime::day_to_dmy( double jd, int &day, int &month, int &year,
+                           calendar::calendar_type_ calendar )
+{
+    return day_to_dmy( long( std::floor( jd ) ), day, month, year, calendar );
+}
+
+
+double dynamical_time::get_dynamical_diff_sh1( double JD )
+{
     double TD = 0.0;
     double E = 0.0;
-    
+
     // Number of centuries from 948.
     E = ( JD - 2067314.5 ) / 36525.0;
     TD = 1830.0 - 405.0 * E + 46.5 * E * E;
 
     return TD;
-  }
+}
 
-  double dynamical_time::get_dynamical_diff_sh2( double JD )
-  {
+double dynamical_time::get_dynamical_diff_sh2( double JD )
+{
     double TD = 0.0;
     double t = 0.0;
-    
+
     // Number of centuries from 1850.
     t = ( JD - 2396758.5 ) / 36525.0;
     TD = 22.5 * t * t;
 
     return TD;
-  }
+}
 
-  double dynamical_time::get_dynamical_diff_table( double JD )
-  {
+double dynamical_time::get_dynamical_diff_table( double JD )
+{
     double TD = 0;
 
     double a = 0.0, b = 0.0,
            c = 0.0, n = 0.0;
 
     int i = 0;
-    
+
     // Get no days since 1620 and divide by 2 years.
     i = ( int )(( JD - 2312752.5 ) / 730.5 );
-    
+
     // Get the base interpolation factor in the table.
-    if( i > ( DYNAMICAL_TIME_TERMS - 2 ) )
+    if ( i > ( DYNAMICAL_TIME_TERMS - 2 ) )
         i = DYNAMICAL_TIME_TERMS - 2;
-	
-	// Calc a,b,c,n.
-	a = delta_t[i+1] - delta_t[i];
-	b = delta_t[i+2] - delta_t[i+1];
-	c = a - b;
-	n = (( JD - ( 2312752.5 + ( 730.5 * i ))) / 730.5 );
-	
-	TD = delta_t[i+1] + n / 2 * (a + b + n * c);
+
+    // Calc a,b,c,n.
+    a = delta_t[i + 1] - delta_t[i];
+    b = delta_t[i + 2] - delta_t[i + 1];
+    c = a - b;
+    n = (( JD - ( 2312752.5 + ( 730.5 * i ))) / 730.5 );
+
+    TD = delta_t[i + 1] + n / 2 * (a + b + n * c);
 
     return TD;
-  }
+}
 
-  double dynamical_time::get_dynamical_diff_near( double JD )
-  {
+double dynamical_time::get_dynamical_diff_near( double JD )
+{
     double TD = 0;
     /* TD for 1990, 2000, 2010 */
     double delta_T[3] = {56.86, 63.83, 70.0};
-    double a,b,c,n;
-         
+    double a, b, c, n;
+
     /* calculate TD by interpolating value */
     a = delta_T[1] - delta_T[0];
     b = delta_T[2] - delta_T[1];
     c = b - a;
-    
-    /* get number of days since 2000 and divide by 10 years */
-	n = (JD - 2451544.5) / 3652.5; 
-	TD = delta_T[1] + (n / 2) * (a + b + n * c);
-	     
-    return TD;
-  }
 
-  double dynamical_time::get_dynamical_diff_other( double JD )
-  {
+    /* get number of days since 2000 and divide by 10 years */
+    n = (JD - 2451544.5) / 3652.5;
+    TD = delta_T[1] + (n / 2) * (a + b + n * c);
+
+    return TD;
+}
+
+double dynamical_time::get_dynamical_diff_other( double JD )
+{
     double TD;
     double a;
-    
+
     a = (JD - 2382148);
     a *= a;
 
     TD = -15 + a / 41048480;
-       
-    return TD;
-  }
 
-  double dynamical_time::get_dynamical_time_diff( double JD )
-  {
+    return TD;
+}
+
+double dynamical_time::get_dynamical_time_diff( double JD )
+{
     double TD;
 
     /* check when JD is, and use corresponding formula */
     /* check for date < 948 A.D. */
     if ( JD < 2067314.5 )
         /* Stephenson and Houlden */
-	    TD = get_dynamical_diff_sh1 (JD);
+        TD = get_dynamical_diff_sh1 (JD);
     else if ( JD >= 2067314.5 && JD < 2305447.5 )
-	    /* check for date 948..1600 A.D. Stephenson and Houlden */
-    	TD = get_dynamical_diff_sh2 (JD);
-	else if ( JD >= 2312752.5 && JD < 2448622.5 )
-		/* check for value in table 1620..1992  interpolation of table */
-		TD = get_dynamical_diff_table (JD);
-	else if ( JD >= 2448622.5 && JD <= 2455197.5 )
-		/* check for near future 1992..2010 interpolation */
-		TD = get_dynamical_diff_near (JD);       
-	else
-	    /* other time period outside */
-	    TD = get_dynamical_diff_other (JD);   	    
-		    
-	return TD;
-  }
+        /* check for date 948..1600 A.D. Stephenson and Houlden */
+        TD = get_dynamical_diff_sh2 (JD);
+    else if ( JD >= 2312752.5 && JD < 2448622.5 )
+        /* check for value in table 1620..1992  interpolation of table */
+        TD = get_dynamical_diff_table (JD);
+    else if ( JD >= 2448622.5 && JD <= 2455197.5 )
+        /* check for near future 1992..2010 interpolation */
+        TD = get_dynamical_diff_near (JD);
+    else
+        /* other time period outside */
+        TD = get_dynamical_diff_other (JD);
 
-  double dynamical_time::get_jde( double JD )
-  {
+    return TD;
+}
+
+double dynamical_time::get_jde( double JD )
+{
     double JDE = 0.0;
     double secs_in_day = 24 * 60 * 60;
-    
+
     JDE = JD +  get_dynamical_time_diff (JD) / secs_in_day;
-    
+
     return JDE;
-  }
+}
 
 }
 

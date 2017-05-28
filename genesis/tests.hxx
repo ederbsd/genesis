@@ -12,17 +12,19 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_TESTS_HPP
-#define GENESIS_TESTS_HPP
+#pragma once
+#ifndef GENESIS_TESTS_HXX
+#define GENESIS_TESTS_HXX
 
 #include <string>
 
 namespace genesis {
-  /**
-   * Genesis Tests Class.
-   */
-  class tests {
-  public:
+/**
+ * Genesis Tests Class.
+ */
+class tests
+{
+public:
     /**
      * Compare results.
      *
@@ -30,8 +32,8 @@ namespace genesis {
      * @param expect - Value defined.
      * @param tolerance - Value for tolerance.
      */
-    static double compare_results( double calc, double expect, 
-                                    double tolerance );
+    static double compare_results( double calc, double expect,
+                                   double tolerance );
 
     /**
      * Explain result tests.
@@ -40,9 +42,9 @@ namespace genesis {
      * @param calc - Method calcule test.
      * @param expect - Value defined.
      * @param tolerance - Value for tolerance.
-     */ 
-    static int result( std::string test, double calc, double expect, 
-                        double tolerance );
+     */
+    static int result( std::string test, double calc, double expect,
+                       double tolerance );
 
     /**
      * Print result for tests.
@@ -53,20 +55,21 @@ namespace genesis {
      */
     static int print_result( std::string module, int failed );
 
-  private:
+private:
     /**
      * Count tests executed.
      *
      * @return Number of the tests executed.
-     */ 
-    static inline int count( void ) {
-      return t_number_;
+     */
+    static inline int count( void )
+    {
+        return t_number_;
     }
 
-  protected:
+protected:
     /// Holds number of tests.
     static int t_number_;
-  };
+};
 
 /**
  * Macro explain result tests.
@@ -82,4 +85,4 @@ namespace genesis {
 
 }
 
-#endif // GENESIS_TESTS_HPP
+#endif // GENESIS_TESTS_HXX

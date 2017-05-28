@@ -12,30 +12,23 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_APPLICATION_HPP
-#define GENESIS_APPLICATION_HPP
+#pragma once
+#ifndef GENESIS_APPLICATION_HXX
+#define GENESIS_APPLICATION_HXX
 
 #include <genesis/cmd_line_parser.hxx>
 #include <genesis/lexical_cast.hxx>
 
-#include <cstdio>
-#include <cstdlib>
-#include <csignal>
-#include <string>
-
-extern "C" {
-#include <unistd.h>
-}
-
 namespace genesis {
-  /**
-   * Genesis Application Class.
-   *
-   * The Application class manages the create application's 
-   * control flow and main settings.
-   */
-  class application : public cmd_line_parser, public lexical_cast {
-  public:
+/**
+ * Genesis Application Class.
+ *
+ * The Application class manages the create application's
+ * control flow and main settings.
+ */
+class application : public cmd_line_parser, public lexical_cast
+{
+public:
     /// Successfull execution.
     static const int exit_success = EXIT_SUCCESS;
 
@@ -45,7 +38,7 @@ namespace genesis {
     /// Unsuccessfull execution due to an exception.
     static const int exit_exception = 0;
 
-    /** 
+    /**
      * Unsuccessfull execution due to lack of information
      * to complete processing. 200 is exist_failure
      * fixing value in 210.
@@ -56,13 +49,13 @@ namespace genesis {
      * Color ANSI types.
      */
     enum color {
-      BLUE,
-      CYAN,
-      GREEN,
-      MAGENTA,
-      RED,
-      WHITE,
-      YELLOW
+        BLUE,
+        CYAN,
+        GREEN,
+        MAGENTA,
+        RED,
+        WHITE,
+        YELLOW
     };
 
     /**
@@ -87,7 +80,7 @@ namespace genesis {
      * @param argc Command-line argument count.
      * @param argv Command-line arguments.
      */
-    virtual int run( int argc, char* argv[] );
+    virtual int run( int argc, char *argv[] );
 
     /**
      * Terminate application.
@@ -110,7 +103,7 @@ namespace genesis {
      * @param p - Stream Text.
      * @param cod_color - Number color (default 0).
      */
-    void set_ansi_color( std::ostream& p, int cod_color = 0 );
+    void set_ansi_color( std::ostream &p, int cod_color = 0 );
 
     /**
      * Set Restore Normal Color.
@@ -122,14 +115,15 @@ namespace genesis {
      *
      * @return Application name.
      */
-    std::string name() const {
-      return name_;
+    std::string name() const
+    {
+        return name_;
     }
 
-  private:
+private:
     std::string name_; ///< Application name.
 
-  protected:
+protected:
     /**
      * The main function for the application.
      *
@@ -137,12 +131,12 @@ namespace genesis {
      * @param argv List of arguments in command line
      * @return 0 on sucess, not 0 on error.
      */
-    virtual int main( int argc, char* argv[] );
+    virtual int main( int argc, char *argv[] );
 
     /// Is debug mode enabled?
     static bool is_debug_enabled_;
-  };
+};
 
 }
 
-#endif // GENESIS_APPLICATION_HPP
+#endif // GENESIS_APPLICATION_HXX

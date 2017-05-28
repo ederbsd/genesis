@@ -12,53 +12,51 @@
  * $Id: Exp$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
+#ifndef GENESIS_UNKNOWN_HXX
+#include <genesis/unknown.hxx>
 #endif
 
-#include <genesis/unknown.hxx>
-
 namespace genesis {
-  namespace dynamic_library {
+namespace dynamic_library {
 
-    const char* const unknown::ID = "genesis::dynamic_library::unknown";
+const char *const unknown::ID = "genesis::dynamic_library::unknown";
 
-    unknown::unknown() 
-     : ref_( 0 )
-    {
-      return;
+unknown::unknown()
+    : ref_( 0 )
+{
+    return;
+}
+
+unknown::~unknown()
+{
+}
+
+void unknown::add_ref()
+{
+    ref_++;
+}
+
+void unknown::release()
+{
+    if ( --ref_ == 0 ) {
+    }
+}
+
+GEN_LIBRARY_HRESULT unknown::query_interface(
+    GEN_IN genesis::dynamic_library::clsid clsid,
+    GEN_OUT void **ppv )
+{
+    GEN_LIBRARY_HRESULT ret = GEN_E_NOINTERFACE;
+    *ppv = 0;
+
+    if ( clsid == unknown::ID ) {
+        *ppv = (void *)this;
+        add_ref();
+        ret = GEN_E_NOERR;
     }
 
-    unknown::~unknown()
-    {
-    }
+    return ret;
+}
 
-    void unknown::add_ref()
-    {
-      ref_++;
-    }
-
-    void unknown::release()
-    {
-      if( --ref_ == 0 ) {
-      }
-    }
-
-    GEN_LIBRARY_HRESULT unknown::query_interface( 
-     GEN_IN genesis::dynamic_library::clsid clsid, 
-     GEN_OUT void** ppv )
-    {
-      GEN_LIBRARY_HRESULT ret = GEN_E_NOINTERFACE;
-      *ppv = 0;
-
-      if( clsid == unknown::ID ) {
-        *ppv = (void*)this;
-	add_ref();
-	ret = GEN_E_NOERR;
-      }
-
-      return ret;
-    }
-
-  }
-} 
+}
+}

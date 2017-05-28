@@ -12,21 +12,24 @@
  * $Id: Exp$
  */
 
-#ifndef GENESIS_CONFIG_HPP
-#define GENESIS_CONFIG_HPP
+#pragma once
+#ifndef GENESIS_CONFIG_HXX
+#define GENESIS_CONFIG_HXX
 
 #include <genesis/lexical_cast.hxx>
 #include <genesis/logger.hxx>
 #include <genesis/string_util.hxx>
 
+#include <string>
 #include <map>
 
 namespace genesis {
-  /**
-   * Genesis Configuration File Reader Class.
-   */
-  class config : public lexical_cast {
-  public:
+/**
+ * Genesis Configuration File Reader Class.
+ */
+class config : public lexical_cast
+{
+public:
     /**
      * Constructor.
      *
@@ -36,7 +39,7 @@ namespace genesis {
      * @param sentry - End config.
      */
     config( std::string filename, std::string delimiter = "=",
-     std::string comment = "#", std::string sentry = "end" );
+            std::string comment = "#", std::string sentry = "end" );
 
     /**
      * Constructor.
@@ -52,9 +55,9 @@ namespace genesis {
      * Search for key read value or optional default value.
      *
      * @param key - Search key.
-     */	
-    template<class T> 
-    T read( const std::string& key ) const;
+     */
+    template<class T>
+    T read( const std::string &key ) const;
 
     /**
      * Search for key read value or optional default value.
@@ -62,8 +65,8 @@ namespace genesis {
      * @param key - Search key.
      * @param value - Search value.
      */
-    template<class T> T 
-    read( const std::string& key, const T& value ) const;
+    template<class T> T
+    read( const std::string &key, const T &value ) const;
 
     /**
      * Search for key read value or optional default value.
@@ -71,8 +74,8 @@ namespace genesis {
      * @param var - Search variable.
      * @param key - Search key.
      */
-    template<class T> 
-    bool read_into( T& var, const std::string& key ) const;
+    template<class T>
+    bool read_into( T &var, const std::string &key ) const;
 
     /**
      * Search for key read value or optional default value.
@@ -82,47 +85,49 @@ namespace genesis {
      * @param value - Search value.
      */
     template<class T>
-    bool read_into( T& var, const std::string& key, const T& value ) const;
-	
+    bool read_into( T &var, const std::string &key, const T &value ) const;
+
     /**
      * Added key and value to a config file.
      *
      * @param key - Add key name.
      * @param value - Add value.
      */
-    template<class T> 
-    void add( std::string key, const T& value );
+    template<class T>
+    void add( std::string key, const T &value );
 
     /**
      * Remove key and its value.
      */
-    void remove( const std::string& key );
-	
-    /** 
+    void remove( const std::string &key );
+
+    /**
      * Check whether key exists in configuration.
      *
      * @param key - Key name.
      * @return Contents key.
      */
-    bool key_exists( const std::string& key ) const;
+    bool key_exists( const std::string &key ) const;
 
-  private:	
-    /** 
+private:
+    /**
      * Delimiter. Check or change configuration syntax.
      *
      * @return Delimiter.
      */
-    std::string get_delimiter() const { 
-      return my_delimiter_; 
+    std::string get_delimiter() const
+    {
+        return my_delimiter_;
     }
 
     /**
      * Comment. Check or change configuration syntax.
      *
      * @return Comment.
-     */ 
-    std::string get_comment() const { 
-      return my_comment_; 
+     */
+    std::string get_comment() const
+    {
+        return my_comment_;
     }
 
     /**
@@ -130,8 +135,9 @@ namespace genesis {
      *
      * @return Sentry.
      */
-    std::string get_sentry() const { 
-      return my_sentry_; 
+    std::string get_sentry() const
+    {
+        return my_sentry_;
     }
 
     /**
@@ -139,10 +145,11 @@ namespace genesis {
      *
      * @return Old delimiter.
      */
-    std::string set_delimiter( const std::string& s ) {
-      std::string old = my_delimiter_;  
-      my_delimiter_ = s;
-      return old; 
+    std::string set_delimiter( const std::string &s )
+    {
+        std::string old = my_delimiter_;
+        my_delimiter_ = s;
+        return old;
     }
 
     /**
@@ -150,10 +157,11 @@ namespace genesis {
      *
      * @return Old comment.
      */
-    std::string set_comment( const std::string& s ) {
-      std::string old = my_comment_;  
-      my_comment_ = s;  
-      return old; 
+    std::string set_comment( const std::string &s )
+    {
+        std::string old = my_comment_;
+        my_comment_ = s;
+        return old;
     }
 
     /**
@@ -163,7 +171,7 @@ namespace genesis {
      * @param cf - Configuration.
      * @return Output stream.
      */
-    friend std::ostream& operator <<( std::ostream& os, const config& cf );
+    friend std::ostream &operator <<( std::ostream &os, const config &cf );
 
     /**
      * Istream operator. Read configuration.
@@ -172,51 +180,51 @@ namespace genesis {
      * @param cf - Configuration.
      * @return Istream.
      */
-    friend std::istream& operator >>( std::istream& is, config& cf );
-	
-  protected:
+    friend std::istream &operator >>( std::istream &is, config &cf );
+
+protected:
     /**
      * Template T as string.
      *
      * @param t - Template T.
      */
-    template<class T> 
-    static std::string T_as_string( const T& t );
+    template<class T>
+    static std::string T_as_string( const T &t );
 
     /**
      * String as T.
      *
      * @param s - String name.
      */
-    template<class T> 
-    static T string_as_T( const std::string& s );
+    template<class T>
+    static T string_as_T( const std::string &s );
 
     std::string my_delimiter_; /// Separator between key and value.
     std::string my_comment_;   /// Separator between value and comments.
     std::string my_sentry_;    /// Optional string to signal end of file.
 
     /// Extracted keys and values.
-    std::map<std::string,std::string> my_contents_;
+    std::map<std::string, std::string> my_contents_;
 
     /// Map.
     typedef std::map< std::string, std::string >::iterator mapi_;
 
     /// Mapc.
     typedef std::map< std::string, std::string >::const_iterator mapci_;
-  };
+};
 
 /**
  * Convert from a T to a std::string.
- * 
+ *
  * @param t - As string.
  * @return Ost string.
  */
 template<class T>
-std::string config::T_as_string( const T& t )
+std::string config::T_as_string( const T &t )
 {
-  std::ostringstream ost;
-  ost << t;
-  return ost.str();
+    std::ostringstream ost;
+    ost << t;
+    return ost.str();
 }
 
 /**
@@ -226,12 +234,12 @@ std::string config::T_as_string( const T& t )
  * @return As string.
  */
 template<class T>
-T config::string_as_T( const std::string& s )
+T config::string_as_T( const std::string &s )
 {
-  T t;
-  std::istringstream ist( s );
-  ist >> t;
-  return t;
+    T t;
+    std::istringstream ist( s );
+    ist >> t;
+    return t;
 }
 
 /**
@@ -241,10 +249,10 @@ T config::string_as_T( const std::string& s )
  * @return True.
  */
 template<>
- inline bool config::string_as_T<bool>( const std::string& s )
+inline bool config::string_as_T<bool>( const std::string &s )
 {
-  genesis::lexical_cast::to_bool<bool>( s );
-  return true;
+    genesis::lexical_cast::to_bool<bool>( s );
+    return true;
 }
 
 /**
@@ -254,19 +262,19 @@ template<>
  * @return As string.
  */
 template<class T>
-T config::read( const std::string& key ) const
+T config::read( const std::string &key ) const
 {
-  mapci_ p = my_contents_.find( key );
+    mapci_ p = my_contents_.find( key );
 
-  if( p == my_contents_.end() ) {
-    throw exp_key_not_found( key.c_str() );
-  }
+    if ( p == my_contents_.end() ) {
+        throw exp_key_not_found( key.c_str() );
+    }
 
-  return string_as_T<T>( p->second );
+    return string_as_T<T>( p->second );
 }
 
 /**
- * Read the value corresponding to key or given 
+ * Read the value corresponding to key or given
  * default value.
  *
  * @param key - String key.
@@ -274,64 +282,64 @@ T config::read( const std::string& key ) const
  * @return As string.
  */
 template<class T>
-T config::read( const std::string& key, const T& value ) const
+T config::read( const std::string &key, const T &value ) const
 {
-  mapci_ p = my_contents_.find( key );
+    mapci_ p = my_contents_.find( key );
 
-  if( p == my_contents_.end() ) {
-    return value;
-  }
+    if ( p == my_contents_.end() ) {
+        return value;
+    }
 
-  return string_as_T<T>( p->second );
+    return string_as_T<T>( p->second );
 }
 
 template<class T>
-bool config::read_into( T& var, const std::string& key ) const
+bool config::read_into( T &var, const std::string &key ) const
 {
-  // Get the value corresponding to key and store in var
-  // Return true if key is found
-  // Otherwise leave var untouched
-  mapci_ p = my_contents_.find( key );
-  bool found = ( p != my_contents_.end() );
+    // Get the value corresponding to key and store in var
+    // Return true if key is found
+    // Otherwise leave var untouched
+    mapci_ p = my_contents_.find( key );
+    bool found = ( p != my_contents_.end() );
 
-  if( found ) { 
-    var = string_as_T<T>( p->second );
-  }
+    if ( found ) {
+        var = string_as_T<T>( p->second );
+    }
 
-  return found;
+    return found;
 }
 
 template<class T>
-bool config::read_into( T& var, const std::string& key, const T& value ) const
+bool config::read_into( T &var, const std::string &key, const T &value ) const
 {
-  // Get the value corresponding to key and store in var
-  // Return true if key is found
-  // Otherwise set var to given default
-  mapci_ p = my_contents_.find( key );
-  bool found = ( p != my_contents_.end() );
+    // Get the value corresponding to key and store in var
+    // Return true if key is found
+    // Otherwise set var to given default
+    mapci_ p = my_contents_.find( key );
+    bool found = ( p != my_contents_.end() );
 
-  if( found ) {
-    var = string_as_T<T>( p->second );
-  } else {
-    var = value;
-  }
+    if ( found ) {
+        var = string_as_T<T>( p->second );
+    } else {
+        var = value;
+    }
 
-  return found;
+    return found;
 }
 
 template<class T>
-void config::add( std::string key, const T& value )
+void config::add( std::string key, const T &value )
 {
-  // Add a key with given value
-  std::string v = T_as_string( value );
+    // Add a key with given value
+    std::string v = T_as_string( value );
 
-  genesis::string_util::trim( key );
-  genesis::string_util::trim( v );
+    genesis::string_util::trim( key );
+    genesis::string_util::trim( v );
 
-  my_contents_[key] = v;
-  return;
+    my_contents_[key] = v;
+    return;
 }
 
 }
 
-#endif // GENESIS_CONFIG_FILE_HPP
+#endif // GENESIS_CONFIG_FILE_HXX

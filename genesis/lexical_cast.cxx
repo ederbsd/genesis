@@ -12,20 +12,18 @@
  * $Id: Exp$
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
+#ifndef GENESIS_LEXICAL_CAST_HXX 
 #include <genesis/lexical_cast.hxx>
+#endif
 
 namespace genesis {
 
-  lexical_cast::lexical_cast()
-  {
-  }
+lexical_cast::lexical_cast()
+{
+}
 
-  lexical_cast::~lexical_cast()
-  {
-  }
+lexical_cast::~lexical_cast()
+{
+}
 
 }
